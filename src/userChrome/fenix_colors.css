@@ -1,0 +1,307 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/color_variable_template.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+:root {
+    /* Popup panels */
+    --arrowpanel-background: rgb(41,29,79) !important;
+    --arrowpanel-border-color: transparent !important;
+    --arrowpanel-color: white !important;
+    --arrowpanel-dimmed: rgb(97,84,124) !important;
+    --arrowpanel-dimmed-further: rgb(66,50,98) !important;
+    --panel-background: rgb(41,29,79) !important;
+    --panel-border-color: transparent !important;
+    --panel-color: white !important;
+    --panel-separator-color: transparent !important;
+    --panel-item-hover-bgcolor: rgba(255,255,255,0.2) !important;
+    --panel-item-active-bgcolor: rgba(255,255,255,0.2) !important;
+    --panel-banner-item-background-color: rgb(117,66,228) !important;
+    --panel-banner-item-hover-bgcolor: rgb(69,68,76) !important;
+    --panel-banner-item-active-bgcolor: rgb(69,68,76) !important;
+    --panel-banner-item-update-supported-bgcolor: rgb(117,66,228) !important;
+    --panel-banner-item-info-icon-bgcolor: rgb(117,66,228) !important;
+    --panel-banner-item-color: white !important;
+    --panel-description-color: white !important;
+    --panel-disabled-color: gray !important;
+    --menuitem-disabled-hover-background-color: transparent !important;
+
+    /* window and toolbar background */
+    --lwt-accent-color: rgb(117,66,228) !important;
+    --lwt-accent-color-inactive: rgba(117,66,228,0.3) !important;
+    --toolbar-non-lwt-bgcolor: rgb(41,29,79) !important;
+    --toolbar-non-lwt-textcolor: white !important;
+    --toolbar-bgcolor: rgb(43,42,51) !important;
+    --toolbar-color: rgb(171,113,255) !important;
+    --tabpanel-background-color: black !important;
+
+    /* tabs with system theme - text is not controlled by variable */
+    --tab-bgcolor: black !important;
+    --tab-selected-bgcolor: rgb(117,66,228) !important;
+
+    /* tabs with any other theme */
+    --lwt-text-color: white !important;
+    --lwt-selected-tab-background-color: rgb(117,66,228) !important;
+
+    /* toolbar area */
+    --toolbarbutton-icon-fill: white !important;
+    --toolbarbutton-icon-fill-attention: white !important;
+    --toolbarbutton-hover-background: rgba(255,255,255,0.2) !important;
+    --toolbarbutton-active-background: rgba(255,255,255,0.2) !important;
+    --lwt-toolbarbutton-icon-fill-attention: white !important;
+    --lwt-toolbarbutton-hover-background: rgba(255,255,255,0.2) !important;
+    --lwt-toolbarbutton-active-background: rgba(255,255,255,0.2) !important;
+    --toolbarseparator-color: black !important;
+
+    /* urlbar */
+    --toolbar-field-border-color: rgb(28,27,34) !important;
+    --toolbar-field-focus-border-color: rgb(28,27,34) !important;
+    --urlbar-popup-url-color: white !important;
+    --urlbar-box-bgcolor: var(--button-bgcolor);
+    --urlbar-box-focus-bgcolor: var(--button-bgcolor);
+    --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor);
+    --urlbar-box-active-bgcolor: var(--button-active-bgcolor);
+    --urlbar-box-text-color: inherit;
+    --urlbar-box-hover-text-color: var(--urlbar-box-text-color);
+    --lwt-brighttext-url-color: #00ddff;
+
+    /* urlbar Firefox < 92 */
+    --lwt-toolbar-field-background-color: rgb(28,27,34) !important;
+    --lwt-toolbar-field-focus: white !important;
+    --lwt-toolbar-field-color: white !important;
+    --lwt-toolbar-field-focus-color: white !important;
+
+    /* urlbar Firefox 92+ */
+    --toolbar-field-background-color: rgb(28,27,34) !important;
+    --toolbar-field-focus-background-color: rgb(28,27,34) !important;
+    --toolbar-field-icon-fill-attention: rgb(117,66,228) !important;
+    --toolbar-field-color: white !important;
+    --toolbar-field-focus-color: white !important;
+
+    /* sidebar - note the sidebar-box rule for the header-area */
+    --lwt-sidebar-background-color: rgb(41,29,79) !important;
+    --lwt-sidebar-text-color: white !important;
+
+    /* findbar */
+    --focus-outline-color: rgb(117,66,228) !important;
+    --input-border-color: rgb(117,66,228) !important;
+
+    /* buttons and checkboxes */
+    --button-bgcolor: rgb(117,66,228) !important;
+    --button-color: white !important;
+    --button-hover-bgcolor: rgb(144,89,255) !important;
+    --button-active-bgcolor: rgb(144,89,255) !important;
+    --button-primary-bgcolor: rgb(117,66,228) !important;
+    --button-primary-hover-bgcolor: rgb(144,89,255) !important;
+    --button-primary-active-bgcolor: rgb(144,89,255) !important;
+    --button-primary-color: white !important;
+    --in-content-primary-button-background: rgb(117,66,228) !important;
+    --in-content-primary-button-background-hover: rgb(144,89,255) !important;
+    --in-content-primary-button-background-active: rgb(144,89,255) !important;
+    --buttons-destructive-bgcolor: #e22850;
+    --buttons-destructive-hover-bgcolor: #c50042;
+    --buttons-destructive-active-bgcolor: #810220;
+    --buttons-destructive-color: #fbfbfe;
+    --checkbox-unchecked-bgcolor: rgb(41,29,79) !important;
+    --checkbox-unchecked-hover-bgcolor: rgb(144,89,255) !important;
+    --checkbox-unchecked-active-bgcolor: rgb(144,89,255) !important;
+    --checkbox-checked-border-color: rgb(117,66,228) !important;
+    --checkbox-checked-bgcolor: rgb(117,66,228) !important;
+    --checkbox-checked-color: white !important;
+    --checkbox-checked-hover-bgcolor: rgba(144,89,255) !important;
+    --checkbox-checked-active-bgcolor: rgba(144,89,255) !important;
+    --uc-checkbox-checked-bgcolor: rgb(117,66,228) !important;
+
+    /* icon glow */
+    --uc-icon-glow-primary: rgb(117,66,228);
+    --uc-icon-glow-secondary: white;
+    --uc-icon-glow-hover-primary: rgb(117,66,228);
+    --uc-icon-glow-hover-secondary: white;
+}
+
+/* Menu Bar */
+toolbar[type=menubar] {
+    background-color: black !important;
+    color: var(--toolbar-color) !important;
+}
+
+/* Body background color (line above Nav Bar when moved to bottom) */
+body {
+    /*background-color: rgb(65,64,72) !important;*/
+    background-color: rgb(43,42,51) !important; /* Nav Bar background */
+}
+
+/* line between nav-bar and tabs toolbar,
+        also fallback color for border around selected tab */
+#navigator-toolbox {
+    --lwt-tabs-border-color: none !important;
+}
+
+/* Line above tabs */
+#tabbrowser-tabs {
+    --lwt-tab-line-color: none !important;
+}
+
+/* the header-area of sidebar needs this to work */
+#sidebar-box {
+    --sidebar-background-color: rgb(41,29,79) !important;
+}
+
+/* Find Bar */
+.findbar-find-previous,
+.findbar-find-next,
+input.findbar-textbox,
+findbar {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: var(--arrowpanel-background) !important;
+    color: var(--toolbar-field-color) !important;
+}
+
+/* Context Menus */
+menupopup {
+    --panel-background: rgb(41,29,79) !important;
+    --panel-border-color: transparent !important;
+    --panel-color: white !important;
+    --panel-separator-color: transparent !important;
+}
+menuseparator {
+    display: none !important;
+}
+menu:hover,
+menuitem:hover {
+    background-color: var(--panel-item-hover-bgcolor) !important;
+    color: var(--panel-color) !important;
+}
+
+/* Menu popup shadow */
+.menupopup-arrowscrollbox {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,0.2),
+                0 8px 10px 1px rgba(0,0,0,0.14),
+                0 3px 14px 2px rgba(0,0,0,0.12) !important;
+}
+
+/* "Saved to Library!" popup notification */
+#confirmation-hint {
+    --panel-background: var(--lwt-accent-color) !important;
+    --panel-border-color: var(--lwt-accent-color) !important;
+    --panel-color: var(--lwt-text-color) !important;
+}
+
+/* "Confirm before closing multiple tabs" popup checkboxes and dialog buttons */
+.checkbox-check {
+    background-color: var(--buttons-destructive-bgcolor) !important;
+    color: var(--buttons-destructive-color) !important;
+}
+.dialog-button-box > button:nth-child(6) {
+    background-color: var(--buttons-destructive-bgcolor) !important;
+    color: var(--buttons-destructive-color) !important;
+}
+
+/* Main App Menu (≡), Tab Manager Menu, and Unified Extensions Menu */
+panel {
+    --panel-background: black !important;
+    --panel-shadow: none !important;
+}
+.panel-viewstack {
+    background-color: var(--arrowpanel-background) !important;
+    border-color: var(--arrowpanel-background) !important;
+}
+
+/* Tabs Toolbar and Container tab line color
+   (hides container tab line above tab by making it the same color as the Tabs Toolbar) */
+#TabsToolbar,
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    background-color: var(--tab-bgcolor) !important;
+}
+
+/* Firefox View Button */
+#firefox-view-button {
+    background-color: transparent !important;
+}
+
+/* Inactive tab color on hover */
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
+    background-color: var(--lwt-accent-color-inactive) !important;
+}
+
+/* Inactive tab text and close button (x) color */
+.tab-text:not([selected]),
+.tab-icon-image:not([selected]),
+.tab-close-button:not([selected]) {
+    color: var(--lwt-text-color) !important;
+}
+
+/* Inactive tab text and close button (x) color on hover */
+.tabbrowser-tab:not([selected]):hover .tab-text,
+.tabbrowser-tab:not([selected]):hover .tab-icon-image,
+.tabbrowser-tab:not([selected]):hover .tab-close-button {
+    color: var(--lwt-accent-color) !important;
+}
+
+/* Tab text and close button (x) color */
+.tab-text,
+.tab-icon-image,
+.tab-close-button,
+.tabbrowser-tab .tab-content::after {
+    color: var(--lwt-text-color) !important;
+}
+
+/* Tab close button (x) color on hover */
+.tab-close-button:hover,
+.tab-close-button:not([selected]):hover {
+    background-color: var(--lwt-accent-color-inactive) !important;
+}
+
+/* Tab Manager Menu Button */
+#alltabs-button {
+    background-color: transparent !important;
+}
+
+/* Tab Manager Menu */
+#allTabsMenu-allTabsView-tabs,
+#allTabsMenu-allTabsView,
+#allTabsMenu-containerTabsView {
+    background-color: var(--toolbar-bgcolor) !important;
+}
+#allTabsMenu-containerTabsButton,
+#allTabsMenu-containerTabsView > .panel-header {
+    color: var(--toolbar-color) !important;
+}
+#allTabsMenu-containerTabsButton:hover {
+    background-color: var(--panel-banner-item-hover-bgcolor) !important;
+}
+.all-tabs-item[selected] {
+    background-color: var(--arrowpanel-dimmed-further) !important;
+}
+.all-tabs-item:hover[selected] {
+    --panel-item-active-bgcolor: transparent !important;
+    --panel-item-hover-bgcolor: transparent !important;
+    background-color: var(--arrowpanel-dimmed) !important;
+}
+.all-tabs-item:hover:not([selected]) {
+    --panel-item-active-bgcolor: transparent !important;
+    --panel-item-hover-bgcolor: transparent !important;
+    background-color: var(--panel-banner-item-hover-bgcolor) !important;
+}
+.all-tabs-close-button:hover {
+    background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+/* Private Browsing Mode theme for URL Bar and Nav Bar */
+:root {
+    --toolbar-field-border-color: var(--arrowpanel-background) !important;
+    --toolbar-field-focus-border-color: var(--arrowpanel-background) !important;
+    --lwt-toolbar-field-background-color: var(--arrowpanel-background) !important;
+    --toolbar-field-background-color: var(--arrowpanel-background) !important;
+    --toolbar-field-focus-background-color: var(--arrowpanel-background) !important;
+}
+body {
+    /*background-image: -moz-linear-gradient(to right, rgb(129,61,158), rgb(81,77,132)) !important;*/
+    background-image: -moz-linear-gradient(to right, rgb(112,34,145), rgb(57,52,115)) !important;
+}
+#nav-bar {
+    /*background-image: -moz-linear-gradient(to right, rgb(112,34,145), rgb(57,52,115)) !important;*/
+    background: transparent !important;
+}

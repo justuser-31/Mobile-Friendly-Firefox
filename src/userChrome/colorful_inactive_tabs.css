@@ -1,0 +1,31 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Inactive tab color */
+.tabbrowser-tab:not(:hover,[pinned], [selected]) > .tab-stack > .tab-background {
+    background-color: var(--lwt-selected-tab-background-color) !important;
+}
+
+/* Inactive tab color on hover */
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
+    background-color: var(--lwt-accent-color-inactive) !important;
+}
+
+/* Inactive pinned tab icon color */
+.tab-icon-image[pinned]:not([selected]) {
+    color: var(--lwt-accent-color) !important;
+}
+
+/* Inactive tab text and close button (x) color */
+.tab-text:not([pinned]):not([selected]),
+.tab-icon-image:not([pinned]):not([selected]),
+.tab-close-button:not([pinned]):not([selected]) {
+    color: var(--lwt-text-color) !important;
+}
+
+/* Inactive tab text and close button (x) color on hover */
+.tabbrowser-tab:not([selected]):hover .tab-text,
+.tabbrowser-tab:not([selected]):hover .tab-icon-image,
+.tabbrowser-tab:not([selected]):hover .tab-close-button {
+    color: var(--lwt-accent-color) !important;
+}

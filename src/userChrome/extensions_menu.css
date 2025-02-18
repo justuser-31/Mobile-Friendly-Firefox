@@ -1,0 +1,44 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Remove header, separators, and manage-extensions button */
+    #unified-extensions-panel .panel-header,
+    #unified-extensions-panel toolbarseparator,
+    #unified-extensions-manage-extensions {
+        display: none !important;
+    }
+
+    /* Adjust button padding and font size for secondary text */
+    #unified-extensions-panel .subviewbutton {
+        padding: 6px !important;
+    }
+    .unified-extensions-item-message {
+        font-size: 75% !important;
+    }
+
+    /* Fix flickering */
+    #unified-extensions-panel {
+        --uei-icon-size: 20px;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: 100vw !important;
+    }
+    #unified-extensions-view {
+        margin-top: 6px !important;
+        height: 325px !important;
+        max-height: 325px !important;
+        width: calc(100vw - 30px) !important;
+    }
+
+    /* Allow extensions to use full popup */
+    .webextension-popup-browser {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: calc(100vw - 20px) !important;
+        min-width: calc(100vw - 20px) !important;
+    }
+
+}

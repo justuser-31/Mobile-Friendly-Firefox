@@ -1,0 +1,12 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Hide Unified Extensions Menu button */
+    #unified-extensions-button {
+        display: none !important;
+    }
+
+}

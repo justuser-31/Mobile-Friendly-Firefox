@@ -1,0 +1,44 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Inactive tab glow on hover */
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+}
+
+/* Newtab buttons (+) and Tab Manager button (v) glow on hover */
+#alltabs-button:hover > .toolbarbutton-badge-stack,
+#new-tab-button:hover,
+#tabs-newtab-button:hover {
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+}
+
+/* Back button glow on hover */
+#back-button:not([disabled]):hover > .toolbarbutton-icon {
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+}
+
+/* Forward button glow on hover */
+#forward-button:not([disabled]):hover > .toolbarbutton-icon {
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+}
+
+/* Urlbar glow */
+#urlbar {
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+}
+/* Urlbar glow on focus */
+#urlbar[focused] {
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+    box-shadow: 0 0 3px var(--uc-icon-glow-secondary) !important;
+}
+/* Urlbar glow on hover */
+#urlbar:hover {
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+    box-shadow: 0 0 3px var(--uc-icon-glow-secondary) !important;
+}
+
+/* Navbar buttons glow */
+#nav-bar toolbarbutton:hover:not(#back-button):not(#forward-button) { 
+    filter: drop-shadow(0 0 2px var(--uc-icon-glow-secondary)) drop-shadow(0 0 1px var(--uc-icon-glow-primary));
+}

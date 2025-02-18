@@ -1,0 +1,157 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Various items color */
+arrowscrollbox,
+findbar,
+toolbar[type=menubar],
+tooltip,
+#TabsToolbar,
+#navigator-toolbox,
+#tabbrowser-arrowscrollbox {
+    background-color: var(--arrowpanel-background) !important;
+    color: var(--arrowpanel-color) !important;
+}
+
+/* Tab throbber color */
+.tab-throbber[busy]::before {
+    fill: var(--lwt-text-color) !important;
+}
+
+/* Inactive Tab throbber color */
+.tabbrowser-tab:not(:hover, [selected]) .tab-throbber[busy]::before {
+    fill: var(--lwt-accent-color) !important;
+}
+
+/* Inactive tab color on hover */
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
+    background-color: var(--lwt-accent-color-inactive) !important;
+}
+
+/* Inactive tab text and close button (x) color */
+.tab-text:not([selected]),
+.tab-icon-image:not([selected]),
+.tab-close-button:not([selected]) {
+    color: var(--lwt-accent-color) !important;
+}
+
+/* Inactive tab text and close button (x) color on hover */
+.tabbrowser-tab:not([selected]):hover .tab-text,
+.tabbrowser-tab:not([selected]):hover .tab-icon-image,
+.tabbrowser-tab:not([selected]):hover .tab-close-button {
+    color: var(--lwt-text-color) !important;
+}
+
+/* Tab text and close button (x) color */
+.tab-text,
+.tab-icon-image,
+.tab-close-button {
+    color: var(--lwt-text-color) !important;
+}
+
+/* Tab close button (x) color on hover */
+.tab-close-button:hover,
+.tab-close-button:not([selected]):hover {
+    background-color: var(--lwt-accent-color-inactive) !important;
+}
+
+/* Container tab line color */
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    background-color: var(--tab-bgcolor) !important;
+}
+
+/* Back button (←) color */
+#back-button > .toolbarbutton-icon {
+    border: none !important;
+    background-color: var(--arrowpanel-dimmed) !important;
+    background-image: none !important;
+}
+
+/* Back button (←) color on hover */
+#back-button:not([disabled]):hover > .toolbarbutton-icon {
+    background-color: var(--lwt-accent-color) !important;
+    color: var(--lwt-text-color) !important;
+}
+
+/* Forward button (→) color */
+#forward-button > .toolbarbutton-icon {
+    border: none !important;
+    background-color: unset !important;
+    background-image: none !important;
+}
+
+/* Forward button (→) color on hover */
+#forward-button:not([disabled]):hover > .toolbarbutton-icon {
+    background-color: var(--lwt-accent-color) !important;
+    color: var(--lwt-text-color) !important;
+}
+
+/* Urlbar color */
+*::selection {
+    background-color: var(--urlbar-popup-url-color) !important;
+    color: var(--lwt-accent-color) !important;
+}
+#nav-bar {
+    background-color: var(--arrowpanel-dimmed) !important;
+    background-image: linear-gradient(#0e0e0e,#0e0e0e) !important; 
+}
+#urlbar:not([focused]) #urlbar-input-container {
+    filter: saturate(3);
+}
+
+/* Bookmark button (★) post-animation color */
+#star-button,
+#star-button[starred] {
+    color: var(--lwt-text-color) !important;
+}
+
+/* "Saved to Library!" color */
+#confirmation-hint {
+    --arrowpanel-border-color: var(--lwt-accent-color) !important;
+    --arrowpanel-color: var(--lwt-text-color) !important;
+    --arrowpanel-background: var(--lwt-accent-color) !important;
+}
+
+/* Navbar buttons color */
+#navigator-toolbox :-moz-any(.toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton)):hover:not([disabled]),
+#navigator-toolbox :-moz-any(.toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton)):-moz-any(:hover:active, [checked], [open]):not([disabled]) {
+        color: var(--lwt-text-color) !important;
+}
+
+/* Main App Menu button (≡) color on hover */
+.subviewbutton:hover {
+    background-color: var(--arrowpanel-color) !important;
+    color: var(--lwt-text-color) !important;
+}
+
+/* Findbar color */
+.browserContainer > findbar {
+    border: none !important;
+    background-color: var(--toolbar-bgcolor) !important;
+    color: var(--toolbar-color) !important;
+    box-shadow: none !important;
+}
+input.findbar-textbox {
+    border: 1px solid var(--toolbar-color) !important;
+    background-color: var(--toolbar-bgcolor) !important;
+    color: var(--toolbar-color) !important;
+    box-shadow: 0 0 3px var(--toolbar-color) !important;
+}
+.findbar-find-previous,
+.findbar-find-next {
+    border: none !important;
+    background-color: transparent !important;
+    color: var(--toolbar-color) !important;
+}
+
+/* Status panel color */
+#statuspanel #statuspanel-inner {
+    border: none !important;
+    height: 23x !important;
+    background-color: transparent !important;
+}
+#statuspanel #statuspanel-label {
+    border: none !important;
+    background-color: var(--arrowpanel-background) !important;
+    color: var(--arrowpanel-color) !important;
+}

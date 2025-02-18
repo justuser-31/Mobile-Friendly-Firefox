@@ -1,0 +1,535 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Source files available here:
+   https://codeberg.org/user0/Mobile-Friendly-Firefox/
+*/
+
+@-moz-document
+regexp("^(about:).*") {
+
+    /* Fenix Colors */
+    :root {
+        --addon-card-background: rgba(171,113,255,0.1) !important;
+        --brand-color-accent: rgb(80,54,132) !important;
+        --brand-color-accent-active: rgb(80,54,132) !important;
+        --brand-color-accent-hover: rgb(80,54,132) !important;
+        --color-canvas: rgb(167,111,250) !important;
+        --card-outline-color: rgb(171,113,255) !important;
+        --card-shadow: var(--shadow-10) !important;
+        --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;
+        --checkbox-border-color: white !important;
+        --checkbox-checked-active-bgcolor: var(--in-content-box-background-active) !important;
+        --checkbox-checked-bgcolor: var(--in-content-box-border-color) !important;
+        --checkbox-checked-border-color: var(--in-content-box-border-color) !important;
+        --checkbox-checked-color: var(--in-content-box-text-color) !important;
+        --checkbox-checked-hover-bgcolor: var(--in-content-box-background-hover) !important;
+        --checkbox-unchecked-active-bgcolor: var(--in-content-box-background-active) !important;
+        --checkbox-unchecked-bgcolor: var(--in-content-box-background) !important;
+        --checkbox-unchecked-hover-bgcolor: var(--in-content-box-background-hover) !important;
+        --dialog-warning-text-color: white !important;
+        --in-content-accent-color: rgb(171,113,255) !important;
+        --in-content-accent-color-active: rgb(203,158,255) !important;
+        --in-content-border-color: rgb(171,113,255) !important;
+        --in-content-border-active: rgb(203,158,255) !important;
+        --in-content-border-active-shadow: rgb(203,158,255) !important;
+        --in-content-border-hover: rgb(203,158,255) !important;
+        --in-content-border-invalid: rgb(171,113,255) !important;
+        --in-content-box-background: rgb(41,29,79) !important;
+        --in-content-box-background-active: rgb(203,158,255) !important;
+        --in-content-box-background-hover: rgb(203,158,255) !important;
+        --in-content-box-background-odd: var(--in-content-box-info-background) !important;
+        --in-content-box-border-color: rgb(171,113,255) !important;
+        --in-content-box-text-color: white !important;
+        --in-content-box-info-background: rgba(171,113,255,0.2) !important;
+        --in-content-button-background: rgb(171,113,255) !important;
+        --in-content-button-background-active: rgb(203,158,255) !important;
+        --in-content-button-background-hover: rgb(203,158,255) !important;
+        --in-content-button-border-color: rgb(171,113,255) !important;
+        --in-content-button-border-color-active: rgb(203,158,255) !important;
+        --in-content-button-border-color-hover: rgb(203,158,255) !important;
+        --in-content-button-text-color: white !important;
+        --in-content-button-text-color-active: white !important;
+        --in-content-button-text-color-hover: white !important;
+        --in-content-category-background: rgb(41,29,79) !important;
+        --in-content-category-background-hover: rgb(171,113,255) !important;
+        --in-content-category-background-selected: rgb(171,113,255) !important;
+        --in-content-category-background-selected-hover: rgb(171,113,255) !important;
+        --in-content-category-text: white !important;
+        --in-content-category-text-selected: white !important;
+        --in-content-danger-button-background: darkred !important;
+        --in-content-danger-button-background-active: red !important;
+        --in-content-danger-button-background-hover: red !important;
+        --in-content-deemphasized-text: lightgray !important;
+        --in-content-error-text-color: white !important;
+        --in-content-focus-outline-color: rgb(171,113,255) !important;
+        --in-content-icon-color: white !important;
+        --in-content-item-hover: rgb(203,158,255) !important;
+        --in-content-item-hover-text: white !important;
+        --in-content-item-selected: rgb(203,158,255) !important;
+        --in-content-item-selected-text: white !important;
+        --in-content-link-color: rgb(171,113,255) !important;
+        --in-content-link-color-active: rgb(203,158,255) !important;
+        --in-content-link-color-hover: rgb(203,158,255) !important;
+        --in-content-link-color-visited: rgb(171,113,255) !important;
+        --in-content-page-background: rgb(41,29,79) !important;
+        --in-content-page-color: rgb(171,113,255) !important;
+        --in-content-primary-button-background: rgb(171,113,255) !important;
+        --in-content-primary-button-background-active: rgb(203,158,255) !important;
+        --in-content-primary-button-background-hover: rgb(203,158,255) !important;
+        --in-content-primary-button-border-color: rgb(171,113,255) !important;
+        --in-content-primary-button-border-hover: rgb(203,158,255) !important;
+        --in-content-primary-button-text-color: white !important;
+        --in-content-primary-button-text-color-hover: white !important;
+        --in-content-selected-text: white !important;
+        --in-content-table-background: rgb(41,29,79) !important;
+        --in-content-table-border-color: rgb(171,113,255) !important;
+        --in-content-table-border-dark-color: rgb(144,89,255) !important;
+        --in-content-table-header-background: rgb(41,29,79) !important;
+        --in-content-table-header-color: white !important;
+        --in-content-text-color: white !important;
+        --in-content-warning-container: darkorange !important;
+        --shadow-10: 0 1px 4px black !important;
+        --shadow-30: 0 4px 16px black !important;
+        color: white !important;    
+    }
+    ::selection {
+        background: rgb(171,113,255) !important;
+        color: white !important;
+    }
+
+    /* About:Addons */
+    #categories > .category[selected], #categories > .category.selected {
+        background-color: var(--in-content-button-background) !important;
+        color: var(--in-content-button-text-color) !important;
+    }
+    .addon.card {
+        background-color: var(--addon-card-background) !important;
+    }
+    .radio-container-with-text > input {
+        border: 2px solid !important;
+        background-color: var(--in-content-page-background) !important;
+        color: var(--in-content-page-color) !important;
+    }
+    .radio-container-with-text > input:hover {
+        background-color: var(--in-content-button-background-hover) !important;
+    }
+    .radio-container-with-text > input:active {
+        background-color: var(--in-content-button-background-active) !important;
+    }
+
+    /* About:Preferences */
+    .radio-check {
+        border: 2px solid !important;
+        border-color: white !important;
+        background-color: var(--in-content-page-background) !important;
+    }
+    .radio-check[selected] {
+        border-color: var(--in-content-page-color) !important;
+        color: var(--in-content-page-color) !important;
+    }
+    .web-appearance-choice-image-container {
+        background-color: var(--in-content-page-background) !important;
+    }
+    .web-appearance-choice-image-container:hover {
+        background-color: var(--in-content-button-background-hover) !important;
+    }
+    .web-appearance-choice-image-container:active {
+        background-color: var(--in-content-button-background-active) !important;
+    }
+    .web-appearance-choice input {
+        background-color: var(--in-content-page-background) !important;
+        border: 2px solid !important;
+        border-color: var(--in-content-page-color) !important;
+        color: var(--in-content-page-color) !important;
+    }
+    .web-appearance-choice input:hover {
+        background-color: var(--in-content-button-background-hover) !important;
+    }
+    .web-appearance-choice input:active {
+        background-color: var(--in-content-button-background-active) !important;
+    }
+
+}
+
+@-moz-document
+url("about:blank"),
+url-prefix("about:blank"),
+url("about:home"),
+url-prefix("about:home"),
+url("about:newtab"),
+url-prefix("about:newtab") {
+
+    /* Fenix Colors */
+    body {
+        background-color: black !important;
+    }
+
+}
+
+@-moz-document
+regexp("^(?!about:).*") {
+
+    /* Apply this customization only on smaller screens in portrait mode */
+    @media (orientation: portrait) and (max-width: 720px) {
+
+        /* Table font size (prevents horizontal scroll on some web pages) */
+        tr {
+            font-size: 13px;
+        }
+
+    }
+
+}
+
+@-moz-document
+url("about:addons"),
+url-prefix("about:addons") {
+
+    /* Apply this customization only on smaller screens */
+    @media
+    (orientation: landscape) and (max-height: 650px),
+    (orientation: portrait) and (max-width: 720px) {
+
+        /* Page width */
+        :root {
+            --in-content-sidebar-width: 50px !important;
+            --sidebar-width: 50px !important;
+        }
+        body {
+            min-width: 100vw !important;
+            max-width:100vw !important;
+            width: 100vw !important;
+        }
+
+        /* About:Addons */
+        .search-label,
+        .textbox-search-icons {
+            display: none !important;
+        }
+        input::placeholder {
+            color: white !important;
+            opacity: 100% !important;
+        }
+        search-addons > search-textbox {
+            background-color: var(--in-content-button-background) !important;
+            color: var(--in-content-button-text-color) !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            padding: 0 !important;
+            width: 49px !important;
+        }
+        search-addons > search-textbox:hover {
+            background-color: var(--in-content-button-background-hover) !important;
+        }
+        search-addons > search-textbox:active {
+            background-color: var(--in-content-button-background-active) !important;
+        }
+        search-addons > search-textbox[focused] {
+            background-color: var(--in-content-page-background) !important;
+            border: 2px solid var(--card-outline-color) !important;
+            width: 100vw !important;
+            z-index: 2 !important;
+        }
+        .main-search {
+            padding-top: 18px !important;
+            padding-bottom: 18px !important;
+        }
+        .main-heading {
+            position: fixed !important;
+            top: 0 !important;
+            padding: 0 !important;
+        }
+        .page-options-menu {
+            position: fixed !important;
+            top: 0 !important;
+            right: 0 !important;
+        }
+        #categories > .category {
+            margin-left: 0px !important;
+        }
+        .sidebar-footer-list {
+            margin-inline-start: 0 !important;
+        }
+        .list-section-heading {
+            margin-top: 0 !important;
+        }
+        .addon-description {
+            padding-right: 40px !important;
+        }
+        .addon-badge-recommended {
+            margin-right: 10px !important;
+        }
+        .more-options-button {
+            margin-inline-start: -6px !important;
+            min-width: 36px !important;
+        }
+        .toggle-button {
+            margin-right: -60px !important;
+            margin-bottom: -60px !important;
+            height: 12px !important;
+            width: 24px !important;
+        }
+        .toggle-button:before {
+            margin-top: -4px !important;
+            margin-left: -6px !important;
+            height: 18px !important;
+            width: 18px !important;
+        }
+
+    }
+
+    /* Apply this customization only on smaller screens in portrait mode */
+    @media (orientation: portrait) and (max-width: 720px) {
+
+        /* Reduce addon cards width and font to fit display without horizontal scrolling */
+        .card {
+            max-width: 250px !important;
+            font-size: 8pt !important;
+        }
+
+    }
+
+}
+
+@-moz-document
+url("about:config") {
+
+    /* Apply this customization only on smaller screens */
+    @media
+    (orientation: landscape) and (max-height: 650px),
+    (orientation: portrait) and (max-width: 720px) {
+
+        /* About:Config */
+        #search-container,
+        #toolbar,
+        #prefs {
+            min-width: calc(100vw - 20px) !important;
+        }
+        #toolbar {
+            flex-direction: column;
+        }
+        #prefs {
+            word-wrap: anywhere;
+        }
+        .checkbox-container {
+            margin-top: 6px;
+            padding-bottom: 3px;
+        }
+        tr {
+            font-size: 12px;
+        }
+        th {
+            padding-left: 8px !important;
+        }
+
+    }
+
+}
+
+@-moz-document
+url("about:license") {
+
+    /* Apply this customization only on smaller screens */
+    @media
+    (orientation: landscape) and (max-height: 650px),
+    (orientation: portrait) and (max-width: 720px) {
+
+        /* About:License */
+        .license-header {
+            background-image: none !important;
+            padding-inline-end: unset !important;
+        }
+        #lic-info > pre {
+            font-size: 4pt !important;
+        }
+
+    }
+
+}
+
+@-moz-document
+url("about:policies"),
+url-prefix("about:policies") {
+
+    /* Apply this customization only on smaller screens */
+    @media
+    (orientation: landscape) and (max-height: 650px),
+    (orientation: portrait) and (max-width: 720px) {
+
+        /* Page width */
+        :root {
+            --in-content-sidebar-width: 50px !important;
+            --sidebar-width: 50px !important;
+        }
+
+        /* About:Policies */
+        #categories > .category {
+            margin-left: 0px !important;
+        }
+        td {
+            font-size: 9px;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+            word-wrap: anywhere;
+        }
+
+    }
+
+}
+
+@-moz-document
+regexp("about:preferences.*") {
+
+    /* Apply this customization only on smaller screens */
+    @media
+    (orientation: landscape) and (max-height: 650px),
+    (orientation: portrait) and (max-width: 720px) {
+
+        /* Page width */
+        :root {
+            --in-content-sidebar-width: 50px !important;
+            --sidebar-width: 50px !important;
+        }
+
+        /* About:Preferences */
+        #searchInput {
+            display: none !important;
+        }
+        .pane-container {
+            margin-inline-start: 10px !important;
+            margin-inline-end: 10px !important;
+            width: calc(100vw - 70px) !important;
+            min-width: calc(100vw - 70px) !important;
+        }
+        #category-general,
+        #category-home,
+        #category-search,
+        #category-privacy,
+        #category-more-from-mozilla {
+            width: 48px !important;
+        }
+        #categories > .category {
+            margin-left: 0px !important;
+        }
+        .sidebar-footer-list {
+            margin-inline-start: 0 !important;
+        }
+        label.web-appearance-choice:nth-child(1) > div:nth-child(2) > span:nth-child(2) {
+            display: none !important;
+        }
+        label.web-appearance-choice:nth-child(1) > div:nth-child(2)::after {
+            content: "Auto" !important;
+        }
+        .accessory-button {
+            min-width: 100px !important;
+        }
+        #defaultFont,
+        #advancedFonts {
+            max-width: 100px !important;
+            width: 100px !important;
+        }
+        #defaultFontSizeLabel {
+            margin-left: -196px !important;
+        }
+        #defaultFontSizeLabel,
+        #defaultFontSize {
+            margin-bottom: -80px !important;
+        }
+        #primaryBrowserLocale {
+            min-width: 20px !important;
+        }
+
+        /* About:Preferences#Privacy */
+        #contentBlockingHeader {
+            padding-left: 28px !important;
+        }
+        #trackingProtectionShield {
+            margin-inline-end: 0 !important;
+            margin-top: -34px !important;
+            max-height: 20px !important;
+            max-width: 20px !important;
+            height: 20px !important;
+            width: 20px !important;
+        }
+        #contentBlockingDescription {
+            font-size: 9pt !important;
+        }
+        #trackingProtectionExceptions {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            max-width: 30px !important;
+            width: 30px !important;
+        }
+        #historyMode {
+            max-width: 235.5px !important;
+            width: 235.5px !important;
+        }
+
+        /* About:Preferences#MoreFromMozilla */
+        .simple .qr-code-box-title {
+          max-width: 235px !important;
+          width: 235px !important;
+        }
+
+    }
+
+}
+
+@-moz-document
+url("about:protections") {
+
+    /* Apply this customization only on smaller screens */
+    @media
+    (orientation: landscape) and (max-height: 650px),
+    (orientation: portrait) and (max-width: 720px) {
+
+        /* About:Protections */
+        #report-content {
+            margin: 0 !important;
+            padding: 50px !important;
+            max-width: 100vw !important;
+            width: 100vw !important;
+        }
+        #mobile-hanger {
+            display: none !important;
+        }
+        .body-wrapper {
+            grid-column-start: 1 !important;
+            grid-column-end: -1 !important;
+        }
+        #manage-protections,
+        #sign-up-for-monitor-link,
+        #save-passwords-button,
+        #get-proxy-extension-link {
+            grid-area: 2 / 1 / 2 / 6 !important;
+        }
+        .card-header .wrapper {
+            grid-row-gap: 8px !important;
+        }
+        .card:not(.has-logins) .wrapper div:nth-child(1) {
+            grid-column-end: -1 !important;
+        }
+
+    }
+
+}
+
+@-moz-document
+url("about:rights") {
+
+    /* Apply this customization only on smaller screens */
+    @media
+    (orientation: landscape) and (max-height: 650px),
+    (orientation: portrait) and (max-width: 720px) {
+
+        /* About:Rights */
+        .rights-header {
+            background-image: none !important;
+            padding-inline-end: unset !important;
+        }
+
+    }
+
+}

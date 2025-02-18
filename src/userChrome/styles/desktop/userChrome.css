@@ -1,0 +1,76 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Source files available here:
+   https://codeberg.org/user0/Mobile-Friendly-Firefox/
+*/
+
+/*
+@import "fenix_colors.css";
+
+@import "glow.css";
+
+@import "round_ui_items.css";
+
+@import "true_mobile_landscape-alt.css";
+*/
+@import "true_mobile_landscape.css";
+
+@import "appMenu.css";
+/*
+@import "alt-browser-alt.css";
+*/
+@import "browser.css";
+
+@import "editBookmarkPanel.css";
+
+@import "findbar.css";
+
+@import "popups.css";
+
+@import "root.css";
+
+@import "tabmenu.css";
+
+@import "urlbar.css";
+
+@import "extensions_menu.css";
+
+@import "custom_rules.css";
+
+@import "iconized_main_menu.css";
+
+@import "tab_close_button_always_on_hover.css";
+
+@import "hide_tabs_scrollbuttons.css";
+/*
+@import "hide_new-tab_button.css";
+*/
+@import "new-tab_button.css";
+/*
+@import "tab_manager_button.css";
+*/
+@import "hide_tab_manager_button.css";
+/*
+@import "hide_unified_extensions_button.css";
+*/
+@import "tabs_larger_min-width.css";
+
+@import "tabs_fill_available_width.css";
+/*
+@import "dynamic_popups.css";
+
+@import "dynamic_popups_plus.css";
+
+@import "dynamic_popups_max.css";
+*/
+@import "dynamic_popups_pro.css";
+/*
+@import "dynamic_popups_pro_max.css";
+
+@import "colorful_inactive_tabs.css";
+
+@import "tab_animated_active_border.css";
+
+@import "borderless_transparent_active_tab.css";
+*/

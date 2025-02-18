@@ -1,0 +1,100 @@
+/* Copyright 2022 Oliver Smith
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+/*@media (max-width: 700px) {*/
+    /* Now that the navbar is at the bottom, we need to set an offset to have
+     * the notifications (like the one for installing addons) displayed
+     * on-screen. */
+    #notification-popup {
+        /*margin-left: -200px !important;*/
+        margin-top: -500px !important;
+        margin-right: -500px !important;
+        height: calc(100vh - 250px) !important;
+        max-width: 100vw !important;
+    }
+
+    /* fixes for installing extensions */
+    .popup-notification-panel  {
+        margin-top: -280px !important; /* bottom nav-bar only */
+        max-width: 98vw;
+    }
+
+    /* fix downloads panel */
+    #downloadsPanel-mainView {
+        max-width: calc(100vw - 10px);
+    }
+
+    /* Menu that appears when long-pressing the back-button */
+    #backForwardMenu {
+        margin-top: -250px;
+        height: 200px;
+        min-height: 200px;
+        max-width: 100vw !important;
+    }
+
+    /* Hide some context menu items */
+    #context-inspect,
+    #context-inspect-a11y,
+    #context-savelinktopocket,
+    #context-searchselect,
+    #context-sendlinktodevice,
+    #context-viewpartialsource-selection,
+    #inspect-separator {
+        display: none !important
+    }
+
+    /* fix flickering of the protections, permissions,
+     * widget overflow and identity popups, make seventh
+     * column of date picker visible */
+    #protections-popup,
+    #permission-popup,
+    #widget-overflow,
+    #identity-popup,
+    #date-picker {
+        max-width: 100vw !important;
+    }
+
+    /* fix the protections popup gettting
+     * too wide, making controls unaccessible */
+    #protections-popup-mainView {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    /* fix flicker on extension menus.
+     * The compromise is that the overflow menu always use
+     * all available height.
+     * The -80px is here to prevent covering the main bars */
+    #widget-overflow,
+    #widget-overflow-mainView {
+        height: calc(100vh - 80px) !important;
+    }
+
+    /* Adjust Tab Manager Menu to fix flickering */
+    #customizationui-widget-panel {
+        width: 100vw !important;
+    }
+
+    /* Adjust Bookmarks Menu (★) and fix flickering */
+    #BMB_bookmarksPopup {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: 100vw !important;
+    }
+
+    /* Adjust "Saved to Library!" popup notification */
+    #confirmation-hint {
+        padding: 10px !important;
+        width: 100vw !important;
+    }
+
+    /* Adjust "Confirm before closing multiple tabs" popup */
+    .dialogFrame {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+}

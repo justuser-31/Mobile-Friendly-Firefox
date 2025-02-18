@@ -1,0 +1,7 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Tab min-width resizing */
+#tabbrowser-tabs {
+    --tab-min-width: 24vw !important;
+}

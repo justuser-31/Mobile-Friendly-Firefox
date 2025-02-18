@@ -1,0 +1,83 @@
+/* Copyright 2022 plata
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+/*@media (max-width: 700px) {*/
+    /* Move navigation bar to bottom */
+    #browser {
+        -moz-box-ordinal-group: 0 !important; /* before FF 113 */
+        order: -1 !important; /* since FF 113 */
+    }
+
+    /* Hide navigation bar in kiosk mode (to prevent bug #29). We can assume FF
+     * is in kiosk mode when fullscreen and max-width conditions are met,
+     * because at this max-width the fullscreen button is hidden
+     * (see appMenu.css). */
+    #nav-bar[inFullscreen],
+    #TabsToolbar[inFullscreen] {
+        display: none;
+    }
+
+    /* Hide minimize/maximize/close buttons */
+    .titlebar-buttonbox-container {
+        display: none;
+    }
+
+    /* https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/toolbars_below_content.css  */
+    #TabsToolbar > .titlebar-buttonbox-container {
+      display: none;
+    }
+    /* Fix panels sizing */
+    .panel-viewstack {
+      max-height: unset !important;
+    }
+
+    /* Menu Bar and Nav Bar bottom border */
+    #navigator-toolbox {
+        border-bottom-color: black !important;
+    }
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --widget-overflow-margin: 66px;
+        --unified-extensions-panel-margin: 66px;
+        --customizationui-widget-panel-margin: 66px;
+        --appMenu-popup-margin: 66px;
+        --BMB_bookmarksPopup-margin: 66px;
+    }
+    :root[uidensity="touch"] {
+        --widget-overflow-margin: 72px;
+        --unified-extensions-panel-margin: 72px;
+        --customizationui-widget-panel-margin: 72px;
+        --appMenu-popup-margin: 72px;
+        --BMB_bookmarksPopup-margin: 72px;
+    }
+
+    /* Adjust Widget Overflow Menu (») spawn height */
+    #widget-overflow {
+        margin-bottom: var(--widget-overflow-margin) !important;
+    }
+
+    /* Adjust Unified Extensions Menu spawn height */
+    #unified-extensions-panel {
+        margin-bottom: var(--unified-extensions-panel-margin) !important;
+    }
+
+    /* Adjust Tab Manager Menu spawn height */
+    #customizationui-widget-panel {
+        margin-bottom: var(--customizationui-widget-panel-margin) !important;
+    }
+
+    /* Adjust Main App Menu (≡) spawn height */
+    #appMenu-popup {
+        margin-bottom: var(--appMenu-popup-margin) !important;
+    }
+
+    /* Adjust Bookmarks Menu (★) spawn height */
+    #BMB_bookmarksPopup {
+        margin-bottom: var(--BMB_bookmarksPopup-margin) !important;
+    }
+
+}

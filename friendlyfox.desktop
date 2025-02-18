@@ -1,0 +1,38 @@
+####################################
+# Copyright 2024 user0             #
+# SPDX-License-Identifier: MPL-2.0 #
+################################################################################################
+
+[Desktop Entry]
+Name=FriendlyFox
+Exec=sh -c "cd $(find ~/ -ipath '*/Mobile-Friendly-Firefox' 2>/dev/null); sh friendlyfox.sh install.sh; exit"
+Terminal=true
+Type=Application
+Icon=friendlyfox
+Categories=Utility;
+#NoDisplay=true
+
+##Define Actions
+Actions=firefox;update;install;uninstall;customize;
+
+[Desktop Action firefox]
+Name=Launch Firefox
+Exec=firefox
+
+[Desktop Action update]
+Name=Update
+Exec=sh -c "cd $(find ~/ -ipath '*/Mobile-Friendly-Firefox' 2>/dev/null); sh friendlyfox.sh update.sh; exit"
+
+[Desktop Action install]
+Name=Install
+Exec=sh -c "cd $(find ~/ -ipath '*/Mobile-Friendly-Firefox' 2>/dev/null); sh friendlyfox.sh install.sh; exit"
+
+[Desktop Action uninstall]
+Name=Uninstall
+Exec=sh -c "cd $(find ~/ -ipath '*/Mobile-Friendly-Firefox' 2>/dev/null); sh friendlyfox.sh uninstall.sh; exit"
+
+[Desktop Action customize]
+Name=Customize FriendlyFox
+Exec=sh -c "cd $(find ~/ -ipath '*/Mobile-Friendly-Firefox' 2>/dev/null); sh friendlyfox.sh customize.sh; exit"
+
+##End of actions menu

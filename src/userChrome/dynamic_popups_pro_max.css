@@ -1,0 +1,100 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --unified-extensions-view-height: calc(100vh - 57px);
+        --customizationui-widget-height: calc(100vh - 51px);
+        --unified-extensions-panel-margin: 5px;
+        --customizationui-widget-panel-margin: 5px;
+    }
+    :root[uidensity="touch"] {
+        --unified-extensions-view-height: calc(100vh - 61px);
+        --customizationui-widget-height: calc(100vh - 55px);
+        --unified-extensions-panel-margin: 6px;
+        --customizationui-widget-panel-margin: 6px;
+    }
+
+    /* Dynamically expand popups */
+    #unified-extensions-view {
+        height: var(--unified-extensions-view-height) !important;
+        max-height: var(--unified-extensions-view-height) !important;
+    }
+    #customizationui-widget-multiview box.panel-viewstack {
+        height: var(--customizationui-widget-height) !important;
+        max-height: var(--customizationui-widget-height) !important;
+    }
+    #appMenu-popup,
+    #appMenu-protonMainView vbox.panel-subview-body {
+        margin-top: 0 !important;
+        height: calc(100vh - 107px) !important;
+        max-height: calc(100vh - 107px) !important;
+    }
+
+    /* Adjust Unified Extensions Menu and Tab Manager Menu to fill screen width */
+    #unified-extensions-panel,
+    #customizationui-widget-panel {
+        padding: 0 !important;
+    }
+    #customizationui-widget-multiview {
+        width: 100vw !important;
+    }
+    #allTabsMenu-allTabsView-tabs {
+        max-width: calc(100vw - 10px) !important;
+    }
+    #unified-extensions-view,
+    #allTabsMenu-containerTabsButton,
+    .all-tabs-item {
+        width: calc(100vw - 10px) !important;
+    }
+
+    /* Adjust Unified Extensions Menu spawn height */
+    #unified-extensions-panel {
+        margin-bottom: var(--unified-extensions-panel-margin) !important;
+    }
+
+    /* Adjust Tab Manager Menu spawn height */
+    #customizationui-widget-panel {
+        margin-bottom: var(--customizationui-widget-panel-margin) !important;
+    }
+
+    /* Blend panels with views */
+    panel {
+        /* Default color: */
+        /*--panel-background: var(--arrowpanel-background) !important;*/
+        /* Fenix color: */
+        --panel-background: var(--toolbar-bgcolor) !important;
+        --panel-shadow: none !important;
+    }
+    #unified-extensions-panel {
+        background-color: var(--arrowpanel-background) !important;
+    }
+    #customizationui-widget-panel {
+        /* Default color: */
+        /*background-color: var(--arrowpanel-background) !important;*/
+        /* Fenix color: */
+        background-color: var(--toolbar-bgcolor) !important;
+    }
+
+    /* Allow extensions to use full popup */
+    .webextension-popup-browser {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+    }
+
+    /* Added extra space to bottom of Unified Extensions Menu to compensate for orientation problem that would leave some extensions hidden in portrait mode when Unified Extentions Menu is first opened in landscape mode */
+    #unified-extensions-area {
+        padding-bottom: 370px !important;
+    }
+
+    /* Added extra space to bottom of Main App Menu (≡) to compensate for orientation problem that would leave some items hidden in portrait mode when Main App Menu (≡) is first opened in landscape mode */
+    #appMenu-quit-button2 {
+        margin-bottom: 300px !important;
+    }
+
+}

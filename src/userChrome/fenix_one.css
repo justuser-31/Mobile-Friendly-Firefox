@@ -1,0 +1,1243 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/******************************/
+/*                            */
+/*         IMPORTANT:         */
+/*                            */
+/* A feature that is present  */
+/* in this code is to move    */
+/* the Tab Manager button to  */
+/* the right of the URL Bar.  */
+/*                            */
+/* Consider removing toolbar  */
+/* items to conserve space.   */
+/*                            */
+/* To remove toolbar items:   */
+/* select item to be removed  */
+/* by using a secondary-click */
+/* or by using a hold gesture */
+/* and tap/click the option   */
+/* "Remove from Toolbar".     */
+/*                            */
+/* To move toolbar items:     */
+/* perform hold gesture or    */
+/* secondary-click on toolbar */
+/* and tap/click the option   */
+/* "Customize Toolbar", or    */
+/* customize a user.js file   */
+/* in your browser profiles.  */
+/*                            */
+/******************************/
+
+/* Resist Fingerprinting Letterbox background color and minimum width for display and URL Bar */
+:root {
+    --tabpanel-background-color: black !important;
+    min-width: 300px !important;
+}
+#urlbar-container {
+    min-width: 150px !important;
+    flex-shrink: 1 !important;
+}
+
+/* Remove popup warning when enterimg Fullscreen */
+.pointerlockfswarning {
+    display: none !important;
+}
+
+/* Fenix Colors */
+:root {
+    /* Popup panels */
+    --arrowpanel-background: rgb(41,29,79) !important;
+    --arrowpanel-border-color: transparent !important;
+    --arrowpanel-color: white !important;
+    --arrowpanel-dimmed: rgb(97,84,124) !important;
+    --arrowpanel-dimmed-further: rgb(66,50,98) !important;
+    --panel-background: rgb(41,29,79) !important;
+    --panel-border-color: transparent !important;
+    --panel-color: white !important;
+    --panel-separator-color: transparent !important;
+    --panel-item-hover-bgcolor: rgba(255,255,255,0.2) !important;
+    --panel-item-active-bgcolor: rgba(255,255,255,0.2) !important;
+    --panel-banner-item-background-color: rgb(117,66,228) !important;
+    --panel-banner-item-hover-bgcolor: rgb(69,68,76) !important;
+    --panel-banner-item-active-bgcolor: rgb(69,68,76) !important;
+    --panel-banner-item-update-supported-bgcolor: rgb(117,66,228) !important;
+    --panel-banner-item-info-icon-bgcolor: rgb(117,66,228) !important;
+    --panel-banner-item-color: white !important;
+    --panel-description-color: white !important;
+    --panel-disabled-color: gray !important;
+    --menuitem-disabled-hover-background-color: transparent !important;
+
+    /* window and toolbar background */
+    --lwt-accent-color: rgb(117,66,228) !important;
+    --lwt-accent-color-inactive: rgba(117,66,228,0.3) !important;
+    --toolbar-non-lwt-bgcolor: rgb(41,29,79) !important;
+    --toolbar-non-lwt-textcolor: white !important;
+    --toolbar-bgcolor: rgb(43,42,51) !important;
+    --toolbar-color: rgb(171,113,255) !important;
+    --tabpanel-background-color: black !important;
+
+    /* tabs with system theme - text is not controlled by variable */
+    --tab-bgcolor: black !important;
+    --tab-selected-bgcolor: rgb(117,66,228) !important;
+
+    /* tabs with any other theme */
+    --lwt-text-color: white !important;
+    --lwt-selected-tab-background-color: rgb(117,66,228) !important;
+
+    /* toolbar area */
+    --toolbarbutton-icon-fill: white !important;
+    --toolbarbutton-icon-fill-attention: white !important;
+    --toolbarbutton-hover-background: rgba(255,255,255,0.2) !important;
+    --toolbarbutton-active-background: rgba(255,255,255,0.2) !important;
+    --lwt-toolbarbutton-icon-fill-attention: white !important;
+    --lwt-toolbarbutton-hover-background: rgba(255,255,255,0.2) !important;
+    --lwt-toolbarbutton-active-background: rgba(255,255,255,0.2) !important;
+    --toolbarseparator-color: black !important;
+
+    /* urlbar */
+    --toolbar-field-border-color: rgb(28,27,34) !important;
+    --toolbar-field-focus-border-color: rgb(28,27,34) !important;
+    --urlbar-popup-url-color: white !important;
+    --urlbar-box-bgcolor: var(--button-bgcolor);
+    --urlbar-box-focus-bgcolor: var(--button-bgcolor);
+    --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor);
+    --urlbar-box-active-bgcolor: var(--button-active-bgcolor);
+    --urlbar-box-text-color: inherit;
+    --urlbar-box-hover-text-color: var(--urlbar-box-text-color);
+    --lwt-brighttext-url-color: #00ddff;
+
+    /* urlbar Firefox < 92 */
+    --lwt-toolbar-field-background-color: rgb(28,27,34) !important;
+    --lwt-toolbar-field-focus: white !important;
+    --lwt-toolbar-field-color: white !important;
+    --lwt-toolbar-field-focus-color: white !important;
+
+    /* urlbar Firefox 92+ */
+    --toolbar-field-background-color: rgb(28,27,34) !important;
+    --toolbar-field-focus-background-color: rgb(28,27,34) !important;
+    --toolbar-field-icon-fill-attention: rgb(117,66,228) !important;
+    --toolbar-field-color: white !important;
+    --toolbar-field-focus-color: white !important;
+
+    /* sidebar - note the sidebar-box rule for the header-area */
+    --lwt-sidebar-background-color: rgb(41,29,79) !important;
+    --lwt-sidebar-text-color: white !important;
+
+    /* findbar */
+    --focus-outline-color: rgb(117,66,228) !important;
+    --input-border-color: rgb(117,66,228) !important;
+
+    /* buttons and checkboxes */
+    --button-bgcolor: rgb(117,66,228) !important;
+    --button-color: white !important;
+    --button-hover-bgcolor: rgb(144,89,255) !important;
+    --button-active-bgcolor: rgb(144,89,255) !important;
+    --button-primary-bgcolor: rgb(117,66,228) !important;
+    --button-primary-hover-bgcolor: rgb(144,89,255) !important;
+    --button-primary-active-bgcolor: rgb(144,89,255) !important;
+    --button-primary-color: white !important;
+    --in-content-primary-button-background: rgb(117,66,228) !important;
+    --in-content-primary-button-background-hover: rgb(144,89,255) !important;
+    --in-content-primary-button-background-active: rgb(144,89,255) !important;
+    --buttons-destructive-bgcolor: #e22850;
+    --buttons-destructive-hover-bgcolor: #c50042;
+    --buttons-destructive-active-bgcolor: #810220;
+    --buttons-destructive-color: #fbfbfe;
+    --checkbox-unchecked-bgcolor: rgb(41,29,79) !important;
+    --checkbox-unchecked-hover-bgcolor: rgb(144,89,255) !important;
+    --checkbox-unchecked-active-bgcolor: rgb(144,89,255) !important;
+    --checkbox-checked-border-color: rgb(117,66,228) !important;
+    --checkbox-checked-bgcolor: rgb(117,66,228) !important;
+    --checkbox-checked-color: white !important;
+    --checkbox-checked-hover-bgcolor: rgba(144,89,255) !important;
+    --checkbox-checked-active-bgcolor: rgba(144,89,255) !important;
+    --uc-checkbox-checked-bgcolor: rgb(117,66,228) !important;
+
+    /* icon glow */
+    --uc-icon-glow-primary: rgb(117,66,228);
+    --uc-icon-glow-secondary: white;
+    --uc-icon-glow-hover-primary: rgb(117,66,228);
+    --uc-icon-glow-hover-secondary: white;
+}
+
+/* Menu Bar */
+toolbar[type=menubar] {
+    background-color: black !important;
+    color: var(--toolbar-color) !important;
+}
+
+/* Body background color (line above Nav Bar when moved to bottom) */
+body {
+    /*background-color: rgb(65,64,72) !important;*/
+    background-color: rgb(43,42,51) !important; /* Nav Bar background */
+}
+
+/* line between nav-bar and tabs toolbar,
+        also fallback color for border around selected tab */
+#navigator-toolbox {
+    --lwt-tabs-border-color: none !important;
+}
+
+/* Line above tabs */
+#tabbrowser-tabs {
+    --lwt-tab-line-color: none !important;
+}
+
+/* the header-area of sidebar needs this to work */
+#sidebar-box {
+    --sidebar-background-color: rgb(41,29,79) !important;
+}
+
+/* Find Bar */
+.findbar-find-previous,
+.findbar-find-next,
+input.findbar-textbox,
+findbar {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: var(--arrowpanel-background) !important;
+    color: var(--toolbar-field-color) !important;
+}
+
+/* Context Menus */
+menupopup {
+    --panel-background: rgb(41,29,79) !important;
+    --panel-border-color: transparent !important;
+    --panel-color: white !important;
+    --panel-separator-color: transparent !important;
+}
+menuseparator {
+    display: none !important;
+}
+menu:hover,
+menuitem:hover {
+    background-color: var(--panel-item-hover-bgcolor) !important;
+    color: var(--panel-color) !important;
+}
+
+/* Menu popup shadow */
+.menupopup-arrowscrollbox {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,0.2),
+                0 8px 10px 1px rgba(0,0,0,0.14),
+                0 3px 14px 2px rgba(0,0,0,0.12) !important;
+}
+
+/* "Saved to Library!" popup notification */
+#confirmation-hint {
+    --panel-background: var(--lwt-accent-color) !important;
+    --panel-border-color: var(--lwt-accent-color) !important;
+    --panel-color: var(--lwt-text-color) !important;
+}
+
+/* "Confirm before closing multiple tabs" popup checkboxes and dialog buttons */
+.checkbox-check {
+    background-color: var(--buttons-destructive-bgcolor) !important;
+    color: var(--buttons-destructive-color) !important;
+}
+.dialog-button-box > button:nth-child(6) {
+    background-color: var(--buttons-destructive-bgcolor) !important;
+    color: var(--buttons-destructive-color) !important;
+}
+
+/* Main App Menu (≡), Tab Manager Menu, and Unified Extensions Menu */
+panel {
+    --panel-background: black !important;
+    --panel-shadow: none !important;
+}
+.panel-viewstack {
+    background-color: var(--arrowpanel-background) !important;
+    border-color: var(--arrowpanel-background) !important;
+}
+
+/* Tabs Toolbar and Container tab line color
+   (hides container tab line above tab by making it the same color as the Tabs Toolbar) */
+#TabsToolbar,
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    background-color: var(--tab-bgcolor) !important;
+}
+
+/* Firefox View Button */
+#firefox-view-button {
+    background-color: transparent !important;
+}
+
+/* Inactive tab color on hover */
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
+    background-color: var(--lwt-accent-color-inactive) !important;
+}
+
+/* Inactive tab text and close button (x) color */
+.tab-text:not([selected]),
+.tab-icon-image:not([selected]),
+.tab-close-button:not([selected]) {
+    color: var(--lwt-text-color) !important;
+}
+
+/* Inactive tab text and close button (x) color on hover */
+.tabbrowser-tab:not([selected]):hover .tab-text,
+.tabbrowser-tab:not([selected]):hover .tab-icon-image,
+.tabbrowser-tab:not([selected]):hover .tab-close-button {
+    color: var(--lwt-accent-color) !important;
+}
+
+/* Tab text and close button (x) color */
+.tab-text,
+.tab-icon-image,
+.tab-close-button,
+.tabbrowser-tab .tab-content::after {
+    color: var(--lwt-text-color) !important;
+}
+
+/* Tab close button (x) color on hover */
+.tab-close-button:hover,
+.tab-close-button:not([selected]):hover {
+    background-color: var(--lwt-accent-color-inactive) !important;
+}
+
+/* Tab Manager Menu Button */
+#alltabs-button {
+    background-color: transparent !important;
+}
+
+/* Tab Manager Menu */
+#allTabsMenu-allTabsView-tabs,
+#allTabsMenu-allTabsView,
+#allTabsMenu-containerTabsView {
+    background-color: var(--toolbar-bgcolor) !important;
+}
+#allTabsMenu-containerTabsButton,
+#allTabsMenu-containerTabsView > .panel-header {
+    color: var(--toolbar-color) !important;
+}
+#allTabsMenu-containerTabsButton:hover {
+    background-color: var(--panel-banner-item-hover-bgcolor) !important;
+}
+.all-tabs-item[selected] {
+    background-color: var(--arrowpanel-dimmed-further) !important;
+}
+.all-tabs-item:hover[selected] {
+    --panel-item-active-bgcolor: transparent !important;
+    --panel-item-hover-bgcolor: transparent !important;
+    background-color: var(--arrowpanel-dimmed) !important;
+}
+.all-tabs-item:hover:not([selected]) {
+    --panel-item-active-bgcolor: transparent !important;
+    --panel-item-hover-bgcolor: transparent !important;
+    background-color: var(--panel-banner-item-hover-bgcolor) !important;
+}
+.all-tabs-close-button:hover {
+    background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+/* Main App Menu (≡) item icons */
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before,
+#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image {
+  fill: currentColor;
+  -moz-context-properties: fill;
+  margin-inline: 0 20px !important;
+}
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before {
+  display: flex;
+  content: "";
+  width: 16px;
+  height: 16px;
+}
+#appMenu-new-tab-button2 {
+    order: 1 !important;
+    list-style-image: url("chrome://global/skin/icons/plus.svg");
+}
+#appMenu-bookmarks-button {
+    order: 2 !important;
+    list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg");
+}
+#appMenu-history-button {
+    order: 3 !important;
+    list-style-image: url("chrome://browser/skin/history.svg");
+}
+#appMenu-downloads-button {
+    order: 4 !important;
+    list-style-image: url("chrome://browser/skin/downloads/downloads.svg");
+}
+#appMenu-extensions-themes-button {
+    order: 5 !important;
+    list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
+}
+#appMenu-passwords-button {
+    order: 6 !important;
+    list-style-image: url("chrome://browser/skin/login.svg");
+}
+#appMenu-find-button2 {
+    order: 7 !important;
+    list-style-image: url("chrome://global/skin/icons/search-glass.svg");
+}
+#appMenu-zoom-controls {
+    order: 8 !important;
+}
+#appMenu-zoom-controls::before {
+    background-image: url("chrome://browser/skin/fullscreen.svg");
+}
+#appMenu-new-window-button2 {
+    order: 9 !important;
+    list-style-image: url("chrome://browser/skin/window.svg");
+}
+#appMenu-new-private-window-button2 {
+    order: 10 !important;
+    list-style-image: url("chrome://browser/skin/privateBrowsing.svg");
+}
+#appMenu-save-file-button2 {
+    order: 11 !important;
+    list-style-image: url("chrome://browser/skin/save.svg");
+}
+#appMenu-print-button2 {
+    order: 12 !important;
+    list-style-image: url("chrome://global/skin/icons/print.svg");
+}
+#appMenu-help-button2 {
+    order: 13 !important;
+    list-style-image: url("chrome://global/skin/icons/help.svg");
+}
+#appMenu-more-button2 {
+    order: 14 !important;
+    list-style-image: url("chrome://global/skin/icons/developer.svg");
+}
+#appMenu-settings-button {
+    order: 15 !important;
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
+}
+#appMenu-quit-button2 {
+    order: 16 !important;
+    list-style-image: url("chrome://devtools/skin/images/search-clear.svg");
+}
+/* Use account-button icon for signed in sync item */
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before {
+    background-image: var(--avatar-image-url)
+}
+
+/* Tab Manager Menu button tab counter */
+#alltabs-button {
+    display: -moz-box !important;
+}
+#TabsToolbar-customization-target {
+    counter-reset: tabCount;
+}
+.tabbrowser-tab {
+    counter-increment: tabCount;
+}
+#alltabs-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+    visibility: collapse !important;
+}
+#alltabs-button > .toolbarbutton-badge-stack {
+     position: relative !important;
+}
+#alltabs-button > .toolbarbutton-badge-stack::before {
+    content: counter(tabCount);
+    color: var(--toolbarbutton-icon-fill);
+    opacity: var(--toolbarbutton-icon-fill-opacity);
+    position: absolute;
+    bottom: var(--toolbarbutton-inner-padding);
+    left: 50%;
+    transform: translateX(-50%);
+}
+#alltabs-button > .toolbarbutton-badge-stack {
+    border-radius: var(--toolbarbutton-border-radius);
+}
+
+/* Tab Manager Menu tab counter */
+#allTabsMenu-allTabsViewTabs, /* before FF 106 */
+#allTabsMenu-allTabsView-tabs { /* since FF 106 */
+    counter-reset: nn_tabs 0 !important;
+}
+.all-tabs-button::before {
+    display: -moz-inline-box !important;
+    -moz-padding-end: 8px !important;
+    content: counter(nn_tabs) !important;
+    font-size: 12px !important; 
+    margin-top: -2px !important; 
+    margin-right: -2px !important;
+}
+.all-tabs-item {
+    counter-increment: nn_tabs !important;
+}
+
+/* Apply this customization only on smaller screens in landscape mode */
+@media (orientation: landscape) and (max-height: 650px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --PanelUI-menu-button-position: 4px;
+        --alltabs-button-badge-position: 9px;
+        --alltabs-button-height: 32px;
+        --alltabs-button-width: 32px;
+        --alltabs-button-position: 3.5px;
+        --urlbar-width: calc(100vw - 188.5px);
+    }
+    :root[uidensity="touch"] {
+        --PanelUI-menu-button-position: 5px;
+        --alltabs-button-badge-position: 10px;
+        --alltabs-button-height: 34px;
+        --alltabs-button-width: 34px;
+        --alltabs-button-position: 4.5px;
+        --urlbar-width: calc(100vw - 196.5px);
+    }
+
+    /* Remove items from Main App Menu (≡) */
+    #appMenu-fxa-status2,
+    #appMenu-fxa-separator,
+    #appMenu-protonMainView toolbarseparator,
+    #appMenu-fullscreen-button2,
+    #appMenu-passwords-button,
+    .subviewbutton[shortcut]::after {
+        display: none !important;
+    }
+
+    /* Fix flickering of Main App Menu (≡) */
+    #appMenu-popup {
+        width: 260px !important;
+    }
+    #appMenu-protonMainView vbox.panel-subview-body {
+        height: 253px !important;
+        max-height: 253px !important;
+        width: 250px !important;
+    }
+
+    /* Change Main App Menu (≡) button to its mobile equivalent (⋮) */
+    #PanelUI-menu-button {
+        position: fixed !important;
+        right: 0px !important;
+        bottom: var(--PanelUI-menu-button-position) !important;
+        margin-right: -10px !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+        visibility: collapse !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack {
+        position: relative !important;
+        width: 75% !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack::before {
+        content: "⋮";
+        color: var(--toolbarbutton-icon-fill);
+        opacity: var(--toolbarbutton-icon-fill-opacity);
+        position: absolute;
+        bottom: calc(var(--toolbarbutton-inner-padding) * 0.9 );
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    /* Hide Tab Bar and Private Browsing indicator */
+    #tabbrowser-tabs,
+    #private-browsing-indicator-with-label {
+        visibility: collapse !important;
+    }
+
+    /* Hide Nav Bar and Tab Bar when in Fullscreen mode and hide and Title Bar */
+    #nav-bar[inFullscreen],
+    #TabsToolbar[inFullscreen],
+    .titlebar-buttonbox-container {
+        display: none;
+    }
+
+    /* Move Nav Bar to bottom */
+    :root:not([uidensity="touch"],[inFullscreen]) {
+        --uc-bottom-toolbar-height: calc(39px + var(--toolbarbutton-outer-padding) )
+    }
+    :root[uidensity="touch"]:not([inFullscreen]){
+        --uc-bottom-toolbar-height: calc(43px + var(--toolbarbutton-outer-padding) )
+    }
+    #browser,
+    #customization-container {
+        margin-bottom: var(--uc-bottom-toolbar-height,0px)
+    }
+    #nav-bar{
+        position: fixed !important;
+        bottom: 0px;
+        width: 100%;
+        z-index: 1;
+    }
+    .panel-viewstack {
+        max-height: unset !important;
+    }
+
+    /* Menu Bar and Nav Bar bottom border */
+    #navigator-toolbox {
+        border-bottom-color: black !important;
+    }
+
+    /* Edit Bookmark Panel */
+    #editBookmarkPanel {
+        background-color: var(--arrowpanel-background) !important;
+        max-height: 100vh !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+    #editBookmarkPanel box.panel-header,
+    #editBookmarkHeaderSeparator,
+    #editBookmarkPanelInfoArea,
+    #editBookmarkSeparator,
+    #editBMPanel_folderRow,
+    #editBMPanel_tagsRow {
+        display: none !important;
+    }
+    #editBookmarkPanelContent {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    #editBookmarkPanelBottomButtons {
+        margin-top: -5px !important;
+        margin-left: -50px !important;
+    }
+
+    /* Find Bar*/
+    input.findbar-textbox {
+        font-size: 12pt !important;
+    }
+
+    /* Remove items from Tab Manager Menu */
+    #allTabsMenu-searchTabs,
+    #allTabsMenu-tabsSeparator {
+        display: none;
+    }
+
+    /* Fix flickering of Tab Manager Menu and extension popups */
+    #customizationui-widget-panel,
+    #customizationui-widget-multiview box.panel-viewstack {
+        height: calc(100vh - 35px) !important;
+        max-height: calc(100vh - 35px) !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    /* Expand Tab Manager Menu */
+    #customizationui-widget-multiview panelview {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Tab Manager Menu inspired by Firefox for Android */
+    #allTabsMenu-containerTabsButton {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: calc(100vw - 18px) !important;
+    }
+    .all-tabs-item {
+        border-radius: 0 !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+    }
+    .all-tabs-close-button {
+        border-radius: 100% !important;
+        margin-left: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        margin-right: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+        width: calc(var(--urlbar-min-height) * 2.25 ) !important;
+    }
+    .all-tabs-close-button > .toolbarbutton-icon {
+        margin-left: calc(var(--urlbar-min-height) * 0.625 ) !important;
+        height: calc(var(--urlbar-min-height) * 0.5 ) !important;
+        width: calc(var(--urlbar-min-height) * 0.5 ) !important;
+    }
+    .all-tabs-button::before {
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Tab Manager Menu button inspired by Firefox for Android */
+    #alltabs-button > .toolbarbutton-badge-stack::before {
+        border: 1px solid var(--toolbarbutton-icon-fill);
+        border-radius: 2px;
+        bottom: var(--alltabs-button-badge-position) !important;
+        padding: 0 5px 0 5px;
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Move Tab Manager Menu button to right of URL Bar */
+    :root {
+        --tab-border-radius: var(--toolbarbutton-border-radius) !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+        height: var(--alltabs-button-height) !important;
+        width: var(--alltabs-button-width) !important;
+    }
+    #alltabs-button {
+        position: absolute;
+        bottom: var(--alltabs-button-position) !important;
+        right: 28.5px;
+        z-index: 2 !important;
+    }
+
+    /* Allow room for Tab Manager Menu button */
+    #nav-bar {
+        /*padding-right: 67px !important;*/
+        width: calc(100vw - 62px) !important;
+    }
+
+    /* Remove items from Unified Extensions Menu */
+    #unified-extensions-panel .panel-header,
+    #unified-extensions-panel toolbarseparator,
+    #unified-extensions-manage-extensions {
+        display: none !important;
+    }
+
+    /* Adjust button padding and font size for secondary text in Unified Extensions Menu */
+    #unified-extensions-panel .subviewbutton {
+        padding: 6px !important;
+    }
+    .unified-extensions-item-message {
+        font-size: 75% !important;
+    }
+
+    /* Fix flickering of Unified Extensions Menu */
+    #unified-extensions-panel {
+        --uei-icon-size: 20px;
+        width: 360px !important;
+    }
+    #unified-extensions-view {
+        margin-top: 6px !important;
+        height: 230px !important;
+        max-height: 230px !important;
+        width: 350px !important;
+    }
+
+    /* Add padding to bottom of Unified Extensions Menu to look better */
+    #unified-extensions-area {
+        padding-bottom: 5px !important;
+    }
+
+    /* Allow extensions to use full display */
+    .webextension-popup-browser {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+    }
+
+    /* Change Unified Extensions Menu button icon to Home button icon * 
+    #unified-extensions-button {
+        list-style-image: url("chrome://browser/skin/home.svg") !important;
+    }
+
+    /* URL Bar */
+    #urlbar-container {
+        max-width: var(--urlbar-width) !important;
+    }
+    #urlbar,
+    #searchbar,
+    #urlbar-input,
+    #urlbar-input-container,
+    #urlbar-background {
+        border-radius: 7px !important;
+    }
+
+    /* Adjust "Saved to Library!" popup notification */
+    #confirmation-hint {
+        padding: 10px !important;
+        width: 100vw !important;
+    }
+
+    /* Adjust "Confirm before closing multiple tabs" popup */
+    .dialogFrame {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    /* Fix installing extensions */
+    .popup-notification-panel  {
+        margin-top: -280px !important; /* bottom nav-bar only */
+        max-width: 98vw;
+    }
+
+}
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --PanelUI-menu-button-position: 4px;
+        --widget-overflow-margin: 22px;
+        --unified-extensions-panel-margin: 22px;
+        --customizationui-widget-panel-margin: 22px;
+        --appMenu-popup-margin: 22px;
+        --BMB_bookmarksPopup-margin: 22px;
+        --alltabs-button-badge-position: 9px;
+        --alltabs-button-height: 32px;
+        --alltabs-button-width: 32px;
+        --alltabs-button-position: 3.5px;
+        --urlbar-width: calc(100vw - 110.5px);
+    }
+    :root[uidensity="touch"] {
+        --PanelUI-menu-button-position: 5px;
+        --widget-overflow-margin: 23px;
+        --unified-extensions-panel-margin: 23px;
+        --customizationui-widget-panel-margin: 23px;
+        --appMenu-popup-margin: 23px;
+        --BMB_bookmarksPopup-margin: 23px;
+        --alltabs-button-badge-position: 10px;
+        --alltabs-button-height: 34px;
+        --alltabs-button-width: 34px;
+        --alltabs-button-position: 4.5px;
+        --urlbar-width: calc(100vw - 114.5px);
+    }
+
+    /* Main App Menu (≡) */
+    #appMenu-popup {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        height: 340px;
+        max-height: 340px;
+        width: 260px !important;
+    }
+    #appMenu-protonMainView vbox.panel-subview-body {
+        margin-top: 4px !important;
+        height: 318px !important;
+        max-height: 318px !important;
+        width: 230px !important;
+    }
+    #appMenu-multiView box.panel-viewstack:first-child {
+        height: calc(100vh - 100px) !important;
+        max-height: calc(100vh - 100px) !important;
+    }
+    #appMenu-fxa-status2,
+    #appMenu-fxa-separator,
+    #appMenu-protonMainView toolbarseparator,
+    #appMenu-fullscreen-button2,
+    #appMenu-passwords-button,
+    .subviewbutton[shortcut]::after {
+        display: none !important;
+    }
+
+    /* Change Main App Menu (≡) button to its mobile equivalent (⋮) */
+    #PanelUI-menu-button {
+        position: fixed !important;
+        right: 0px !important;
+        bottom: var(--PanelUI-menu-button-position) !important;
+        margin-right: -10px !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+        visibility: collapse !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack {
+        position: relative !important;
+        width: 75% !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack::before {
+        content: "⋮";
+        color: var(--toolbarbutton-icon-fill);
+        opacity: var(--toolbarbutton-icon-fill-opacity);
+        position: absolute;
+        bottom: calc(var(--toolbarbutton-inner-padding) * 0.9 );
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    /* Hide Tab Bar and Private Browsing Indicator */
+    #tabbrowser-tabs,
+    #private-browsing-indicator-with-label {
+        visibility: collapse !important;
+    }
+
+    /* Hide Nav Bar and Tab Bar when in Fullscreen mode and hide and Title Bar */
+    #nav-bar[inFullscreen],
+    #TabsToolbar[inFullscreen],
+    .titlebar-buttonbox-container {
+        display: none;
+    }
+
+    /* Move Nav Bar to bottom */
+    :root:not([uidensity="touch"],[inFullscreen]) {
+        --uc-bottom-toolbar-height: calc(39px + var(--toolbarbutton-outer-padding) )
+    }
+    :root[uidensity="touch"]:not([inFullscreen]){
+        --uc-bottom-toolbar-height: calc(43px + var(--toolbarbutton-outer-padding) )
+    }
+    #browser,
+    #customization-container {
+        margin-bottom: var(--uc-bottom-toolbar-height,0px)
+    }
+    #nav-bar{
+        position: fixed !important;
+        bottom: 0px;
+        width: 100%;
+        z-index: 1;
+    }
+    .panel-viewstack {
+        max-height: unset !important;
+    }
+
+    /* Menu Bar and Nav Bar bottom border */
+    #navigator-toolbox {
+        border-bottom-color: black !important;
+    }
+
+    /* Adjust Widget Overflow Menu (») spawn height */
+    #widget-overflow {
+        margin-bottom: var(--widget-overflow-margin) !important;
+    }
+
+    /* Adjust Unified Extensions Menu spawn height */
+    #unified-extensions-panel {
+        margin-bottom: var(--unified-extensions-panel-margin) !important;
+    }
+
+    /* Adjust Tab Manager Menu spawn height */
+    #customizationui-widget-panel {
+        margin-bottom: var(--customizationui-widget-panel-margin) !important;
+    }
+
+    /* Adjust Main App Menu (≡) spawn height */
+    #appMenu-popup {
+        margin-bottom: var(--appMenu-popup-margin) !important;
+    }
+
+    /* Adjust Bookmarks Menu (★) spawn height */
+    #BMB_bookmarksPopup {
+        margin-bottom: var(--BMB_bookmarksPopup-margin) !important;
+    }
+
+    /* Edit Bookmark Panel */
+    #editBookmarkPanel {
+        background-color: var(--arrowpanel-background) !important;
+        margin-bottom: 225px !important;
+        max-height: 100vh !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+    #editBookmarkPanel box.panel-header,
+    #editBookmarkHeaderSeparator,
+    #editBookmarkPanelInfoArea,
+    #editBookmarkSeparator,
+    #editBMPanel_folderRow,
+    #editBMPanel_tagsRow {
+        display: none !important;
+    }
+    #editBookmarkPanelContent {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    #editBookmarkPanelBottomButtons {
+        margin-top: -5px !important;
+        margin-left: -50px !important;
+    }
+
+    /* Find Bar */
+    .findbar-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 40px !important;
+    }
+    .findbar-textbox {
+        width: 100% !important;
+    }
+    .findbar-container checkbox {
+        padding: 10px 0px;
+    }
+    .findbar-highlight,
+    .findbar-case-sensitive,
+    .findbar-match-diacritics,
+    .findbar-entire-word,
+    /*.found-matches,*/
+    .findbar-find-status,
+    .find-status-icon {
+        display: none;
+    }
+    input.findbar-textbox {
+        font-size: 12pt !important;
+    }
+
+    /* Fix Popups */
+    #notification-popup {
+        margin-top: -500px !important;
+        margin-right: -500px !important;
+        height: calc(100vh - 250px) !important;
+        max-width: 100vw !important;
+    }
+    #downloadsPanel-mainView {
+        max-width: calc(100vw - 10px);
+    }
+    #backForwardMenu {
+        margin-top: -250px;
+        height: 200px;
+        min-height: 200px;
+        max-width: 100vw !important;
+    }
+    #context-inspect,
+    #context-inspect-a11y,
+    #context-savelinktopocket,
+    #context-searchselect,
+    #context-sendlinktodevice,
+    #context-viewpartialsource-selection,
+    #inspect-separator {
+        display: none !important
+    }
+    #protections-popup,
+    #permission-popup,
+    #widget-overflow,
+    #identity-popup {
+        max-width: 100vw !important;
+    }
+    #protections-popup-mainView {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    #widget-overflow,
+    #widget-overflow-mainView {
+        height: calc(100vh - 80px) !important;
+    }
+    #customizationui-widget-panel {
+        width: 100vw !important;
+    }
+    #BMB_bookmarksPopup {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: 100vw !important;
+    }
+
+    /* Tab Manager Menu */
+    #allTabsMenu-searchTabs,
+    #allTabsMenu-tabsSeparator {
+        display: none;
+    }
+    #customizationui-widget-panel {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    #allTabsMenu-multiView box.panel-viewstack {
+        height: calc(100vh - 100px) !important;
+        max-height: calc(100vh - 100px) !important;
+    }
+    #customizationui-widget-multiview box.panel-viewstack {
+        height: 330px !important;
+        max-height: 330px !important;
+    }
+    #allTabsMenu-allTabsViewTabs,
+    #allTabsMenu-allTabsView-tabs {
+        max-width: calc(100vw - 30px);
+        padding-top: 2px !important;
+    }
+
+    /* Expand Tab Manager Menu */
+    #customizationui-widget-multiview panelview {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Tab Manager Menu inspired by Firefox for Android */
+    #allTabsMenu-containerTabsButton {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: calc(100vw - 30px) !important;
+    }
+    .all-tabs-item {
+        border-radius: 0 !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+        width: calc(100vw - 30px) !important;
+    }
+    .all-tabs-close-button {
+        border-radius: 100% !important;
+        margin-left: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        margin-right: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+        width: calc(var(--urlbar-min-height) * 2.25 ) !important;
+    }
+    .all-tabs-close-button > .toolbarbutton-icon {
+        margin-left: calc(var(--urlbar-min-height) * 0.625 ) !important;
+        height: calc(var(--urlbar-min-height) * 0.5 ) !important;
+        width: calc(var(--urlbar-min-height) * 0.5 ) !important;
+    }
+    .all-tabs-button::before {
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Tab Manager Menu button inspired by Firefox for Android */
+    #alltabs-button > .toolbarbutton-badge-stack::before {
+        border: 1px solid var(--toolbarbutton-icon-fill);
+        border-radius: 2px;
+        bottom: var(--alltabs-button-badge-position) !important;
+        padding: 0 5px 0 5px;
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Move Tab Manager Menu button to right of URL Bar */
+    :root {
+        --tab-border-radius: var(--toolbarbutton-border-radius) !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+        height: var(--alltabs-button-height) !important;
+        width: var(--alltabs-button-width) !important;
+    }
+    #alltabs-button {
+        position: absolute;
+        bottom: var(--alltabs-button-position) !important;
+        right: 28.5px;
+        z-index: 2 !important;
+    }
+
+    /* Nav Bar */
+    #back-button,
+    #forward-button,
+    #customizableui-special-spring1,
+    #customizableui-special-spring2,
+    #library-button,
+    #sidebar-button,
+    #fxa-toolbar-menu-button {
+        display: none !important;
+    }
+
+    /* Allow room for Tab Manager Menu button */
+    #nav-bar {
+        /*padding-right: 67px !important;*/
+        width: calc(100vw - 62px) !important;
+    }
+
+    /* Remove items from Unified Extensions Menu */
+    #unified-extensions-panel .panel-header,
+    #unified-extensions-panel toolbarseparator,
+    #unified-extensions-manage-extensions {
+        display: none !important;
+    }
+
+    /* Adjust button padding and font size for secondary text in Unified Extensions Menu */
+    #unified-extensions-panel .subviewbutton {
+        padding: 6px !important;
+    }
+    .unified-extensions-item-message {
+        font-size: 75% !important;
+    }
+
+    /* Fix flickering for Unified Extensions Menu */
+    #unified-extensions-panel {
+        --uei-icon-size: 20px;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: 100vw !important;
+    }
+    #unified-extensions-view {
+        margin-top: 6px !important;
+        height: 325px !important;
+        max-height: 325px !important;
+        width: calc(100vw - 30px) !important;
+    }
+
+    /* Allow extensions to use full popup */
+    .webextension-popup-browser {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: calc(100vw - 20px) !important;
+        min-width: calc(100vw - 20px) !important;
+    }
+
+    /* Change Unified Extensions Menu button icon to Home button icon * 
+    #unified-extensions-button {
+        list-style-image: url("chrome://browser/skin/home.svg") !important;
+    }
+
+    /* Hide Unified Extensions Menu button * 
+    #unified-extensions-button {
+        display: none !important;
+    }
+
+    /* URL Bar */
+    #urlbar-container {
+        max-width: var(--urlbar-width) !important;
+    }
+    #urlbar {
+        padding: 0px 5px;
+    }
+    #urlbar-input {
+        font-size: 10pt !important;
+    }
+    #urlbar[focused] #remote-control-box,
+    #urlbar[focused] #identity-box,
+    #urlbar[focused] #tracking-protection-icon-container,
+    #urlbar[focused] #reader-mode-button,
+    #urlbar[focused] #page-action-buttons,
+    #tracking-protection-icon-container,
+    #identity-permission-box,
+    #userContext-indicator,
+    #pageActionButton {
+        display: none;
+    }
+    #identity-icon-label {
+        display: none;
+    }
+    .urlbarView {
+        position: fixed !important;
+        inset: 0px 0px 84px 0px;
+        width: 100% !important;
+        background: var(--arrowpanel-background);
+        margin: 0px !important;
+        margin-inline: 0px !important;
+        border-inline: 0px !important;
+        overflow-y:  auto !important;
+        overflow-x: none !important;
+        scrollbar-width: none;
+    }
+    #PersonalToolbar {
+        display: none;
+    }
+    :root {
+        --bookmarks-toolbar-overlapping-browser-height: 0 !important;
+    }
+    #urlbar,
+    #searchbar,
+    #urlbar-input,
+    #urlbar-input-container,
+    #urlbar-background {
+        border-radius: 7px !important;
+    }
+
+    /* Adjust "Saved to Library!" popup notification */
+    #confirmation-hint {
+        padding: 10px !important;
+        width: 100vw !important;
+    }
+
+    /* Adjust "Confirm before closing multiple tabs" popup */
+    .dialogFrame {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    /* Added extra space to bottom of Unified Extensions Menu to compensate for orientation problem that would leave some extensions hidden in portrait mode when Unified Extentions Menu is first opened in landscape mode */
+    #unified-extensions-area {
+        padding-bottom: 120px !important;
+    }
+
+    /* Added extra space to bottom of Main App Menu (≡) to compensate for orientation problem that would leave some items hidden in portrait mode when Main App Menu (≡) is first opened in landscape mode */
+    #appMenu-quit-button2 {
+        margin-bottom: 64px !important;
+    }
+
+}
+
+/* Private Browsing Mode theme for URL Bar and Nav Bar */
+:root {
+    --toolbar-field-border-color: var(--arrowpanel-background) !important;
+    --toolbar-field-focus-border-color: var(--arrowpanel-background) !important;
+    --lwt-toolbar-field-background-color: var(--arrowpanel-background) !important;
+    --toolbar-field-background-color: var(--arrowpanel-background) !important;
+    --toolbar-field-focus-background-color: var(--arrowpanel-background) !important;
+}
+body {
+    /*background-image: -moz-linear-gradient(to right, rgb(129,61,158), rgb(81,77,132)) !important;*/
+    background-image: -moz-linear-gradient(to right, rgb(112,34,145), rgb(57,52,115)) !important;
+}
+#nav-bar {
+    /*background-image: -moz-linear-gradient(to right, rgb(112,34,145), rgb(57,52,115)) !important;*/
+    background: transparent !important;
+}

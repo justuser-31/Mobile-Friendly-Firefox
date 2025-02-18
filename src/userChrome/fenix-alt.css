@@ -1,0 +1,389 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/******************************/
+/*                            */
+/*         IMPORTANT:         */
+/*                            */
+/* A feature that is present  */
+/* in this code is to move    */
+/* the Tab Manager button to  */
+/* the right of the URL Bar.  */
+/*                            */
+/* Consider removing toolbar  */
+/* items to conserve space.   */
+/*                            */
+/* To remove toolbar items:   */
+/* select item to be removed  */
+/* by using a secondary-click */
+/* or by using a hold gesture */
+/* and tap/click the option   */
+/* "Remove from Toolbar".     */
+/*                            */
+/* To move toolbar items:     */
+/* perform hold gesture or    */
+/* secondary-click on toolbar */
+/* and tap/click the option   */
+/* "Customize Toolbar", or    */
+/* customize a user.js file   */
+/* in your browser profiles.  */
+/*                            */
+/******************************/
+
+/* Main App Menu (≡) item icons */
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before,
+#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image {
+  fill: currentColor;
+  -moz-context-properties: fill;
+  margin-inline: 0 20px !important;
+}
+#appMenu-zoom-controls::before,
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before {
+  display: flex;
+  content: "";
+  width: 16px;
+  height: 16px;
+}
+#appMenu-new-tab-button2 {
+    order: 1 !important;
+    list-style-image: url("chrome://global/skin/icons/plus.svg");
+}
+#appMenu-bookmarks-button {
+    order: 2 !important;
+    list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg");
+}
+#appMenu-history-button {
+    order: 3 !important;
+    list-style-image: url("chrome://browser/skin/history.svg");
+}
+#appMenu-downloads-button {
+    order: 4 !important;
+    list-style-image: url("chrome://browser/skin/downloads/downloads.svg");
+}
+#appMenu-extensions-themes-button {
+    order: 5 !important;
+    list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
+}
+#appMenu-passwords-button {
+    order: 6 !important;
+    list-style-image: url("chrome://browser/skin/login.svg");
+}
+#appMenu-find-button2 {
+    order: 7 !important;
+    list-style-image: url("chrome://global/skin/icons/search-glass.svg");
+}
+#appMenu-zoom-controls {
+    order: 8 !important;
+}
+#appMenu-zoom-controls::before {
+    background-image: url("chrome://browser/skin/fullscreen.svg");
+}
+#appMenu-new-window-button2 {
+    order: 9 !important;
+    list-style-image: url("chrome://browser/skin/window.svg");
+}
+#appMenu-new-private-window-button2 {
+    order: 10 !important;
+    list-style-image: url("chrome://browser/skin/privateBrowsing.svg");
+}
+#appMenu-save-file-button2 {
+    order: 11 !important;
+    list-style-image: url("chrome://browser/skin/save.svg");
+}
+#appMenu-print-button2 {
+    order: 12 !important;
+    list-style-image: url("chrome://global/skin/icons/print.svg");
+}
+#appMenu-help-button2 {
+    order: 13 !important;
+    list-style-image: url("chrome://global/skin/icons/help.svg");
+}
+#appMenu-more-button2 {
+    order: 14 !important;
+    list-style-image: url("chrome://global/skin/icons/developer.svg");
+}
+#appMenu-settings-button {
+    order: 15 !important;
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
+}
+#appMenu-quit-button2 {
+    order: 16 !important;
+    list-style-image: url("chrome://devtools/skin/images/search-clear.svg");
+}
+/* Use account-button icon for signed in sync item */
+#appMenu-fxa-status2[fxastatus] > toolbarbutton::before {
+    background-image: var(--avatar-image-url)
+}
+
+/* Apply this customization only on smaller screens in landscape mode */
+@media (orientation: landscape) and (max-height: 650px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --PanelUI-menu-button-position: 4px;
+        --alltabs-button-badge-position: 9px;
+        --urlbar-width: calc(100vw - 188.5px);
+    }
+    :root[uidensity="touch"] {
+        --PanelUI-menu-button-position: 5px;
+        --alltabs-button-badge-position: 10px;
+        --urlbar-width: calc(100vw - 196.5px);
+    }
+
+    /* Change Main App Menu (≡) button to its mobile equivalent (⋮) */
+    #PanelUI-menu-button {
+        position: fixed !important;
+        right: 0px !important;
+        bottom: var(--PanelUI-menu-button-position) !important;
+        margin-right: -10px !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+        visibility: collapse !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack {
+        position: relative !important;
+        width: 75% !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack::before {
+        content: "⋮";
+        color: var(--toolbarbutton-icon-fill);
+        opacity: var(--toolbarbutton-icon-fill-opacity);
+        position: absolute;
+        bottom: calc(var(--toolbarbutton-inner-padding) * 0.9 );
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    /* Find Bar */
+    input.findbar-textbox {
+        font-size: 12pt !important;
+    }
+
+    /* Tab Manager Menu inspired by Firefox for Android */
+    #allTabsMenu-containerTabsButton {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: calc(100vw - 18px) !important;
+    }
+    .all-tabs-item {
+        border-radius: 0 !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+    }
+    .all-tabs-close-button {
+        border-radius: 100% !important;
+        margin-left: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        margin-right: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+        width: calc(var(--urlbar-min-height) * 2.25 ) !important;
+    }
+    .all-tabs-close-button > .toolbarbutton-icon {
+        margin-left: calc(var(--urlbar-min-height) * 0.625 ) !important;
+        height: calc(var(--urlbar-min-height) * 0.5 ) !important;
+        width: calc(var(--urlbar-min-height) * 0.5 ) !important;
+    }
+    .all-tabs-button::before {
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Tab Manager Menu button inspired by Firefox for Android */
+    #alltabs-button > .toolbarbutton-badge-stack::before {
+        border: 1px solid var(--toolbarbutton-icon-fill);
+        border-radius: 2px;
+        bottom: var(--alltabs-button-badge-position) !important;
+        padding: 0 5px 0 5px;
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Move Tab Manager Menu button to right of URL Bar */
+    :root {
+        --tab-border-radius: var(--toolbarbutton-border-radius) !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+        height: var(--alltabs-button-height) !important;
+        width: var(--alltabs-button-width) !important;
+    }
+    #alltabs-button {
+        position: absolute;
+        top: var(--alltabs-button-position) !important;
+        right: 28.5px;
+        z-index: 2 !important;
+    }
+
+    /* Allow room for Tab Manager Menu button */
+    #nav-bar {
+        /*padding-right: 67px !important;*/
+        width: calc(100vw - 62px) !important;
+    }
+
+    /* Change Unified Extensions Menu button icon to Home button icon * 
+    #unified-extensions-button {
+        list-style-image: url("chrome://browser/skin/home.svg") !important;
+    }
+
+    /* URL Bar */
+    #urlbar-container {
+        max-width: var(--urlbar-width) !important;
+    }
+    #urlbar,
+    #searchbar,
+    #urlbar-input,
+    #urlbar-input-container,
+    #urlbar-background {
+        border-radius: 7px !important;
+    }
+
+}
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --PanelUI-menu-button-position: 4px;
+        --alltabs-button-badge-position: 8px;
+        --alltabs-button-height: 32px;
+        --alltabs-button-width: 32px;
+        --alltabs-button-position: 4px;
+        --urlbar-width: calc(100vw - 110.5px);
+    }
+    :root[uidensity="touch"] {
+        --PanelUI-menu-button-position: 5px;
+        --alltabs-button-badge-position: 9px;
+        --alltabs-button-height: 34px;
+        --alltabs-button-width: 34px;
+        --alltabs-button-position: 5px;
+        --urlbar-width: calc(100vw - 114.5px);
+    }
+
+    /* Main App Menu (≡) */
+    #appMenu-popup {
+        width: 260px !important;
+    }
+    #appMenu-protonMainView vbox.panel-subview-body {
+        padding-top: 8px !important;
+        width: 230px !important;
+    }
+
+    /* Change Main App Menu (≡) button to its mobile equivalent (⋮) */
+    #PanelUI-menu-button {
+        position: fixed !important;
+        right: 0px !important;
+        bottom: var(--PanelUI-menu-button-position) !important;
+        margin-right: -10px !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+        visibility: collapse !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack {
+        position: relative !important;
+        width: 75% !important;
+    }
+    #PanelUI-menu-button > .toolbarbutton-badge-stack::before {
+        content: "⋮";
+        color: var(--toolbarbutton-icon-fill);
+        opacity: var(--toolbarbutton-icon-fill-opacity);
+        position: absolute;
+        bottom: calc(var(--toolbarbutton-inner-padding) * 0.9 );
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
+
+    /* Hide Tab Bar and Private Browsing Indicator */
+    #tabbrowser-tabs,
+    #private-browsing-indicator-with-label {
+        visibility: collapse !important;
+    }
+
+    /* Find Bar */
+    input.findbar-textbox {
+        font-size: 12pt !important;
+    }
+
+    /* Tab Manager Menu inspired by Firefox for Android */
+    #allTabsMenu-containerTabsButton {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        width: calc(100vw - 30px) !important;
+    }
+    .all-tabs-item {
+        border-radius: 0 !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+        width: calc(100vw - 30px) !important;
+    }
+    .all-tabs-close-button {
+        border-radius: 100% !important;
+        margin-left: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        margin-right: calc(var(--urlbar-min-height) * -0.6 ) !important;
+        height: calc(var(--urlbar-min-height) * 2.25 ) !important;
+        width: calc(var(--urlbar-min-height) * 2.25 ) !important;
+    }
+    .all-tabs-close-button > .toolbarbutton-icon {
+        margin-left: calc(var(--urlbar-min-height) * 0.625 ) !important;
+        height: calc(var(--urlbar-min-height) * 0.5 ) !important;
+        width: calc(var(--urlbar-min-height) * 0.5 ) !important;
+    }
+    .all-tabs-button::before {
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Tab Manager Menu button inspired by Firefox for Android */
+    #alltabs-button > .toolbarbutton-badge-stack::before {
+        border: 1px solid var(--toolbarbutton-icon-fill);
+        border-radius: 2px;
+        bottom: var(--alltabs-button-badge-position) !important;
+        padding: 0 5px 0 5px;
+        font-size: 9px !important;
+        font-weight: 600 !important;
+        font-family: "Noto Sans" !important;
+    }
+
+    /* Move Tab Manager Menu button to right of URL Bar */
+    :root {
+        --tab-border-radius: var(--toolbarbutton-border-radius) !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+        height: var(--alltabs-button-height) !important;
+        width: var(--alltabs-button-width) !important;
+    }
+    #alltabs-button {
+        position: absolute;
+        top: var(--alltabs-button-position) !important;
+        right: 28.5px;
+        z-index: 2 !important;
+    }
+
+    /* Allow room for Tab Manager Menu button */
+    #nav-bar {
+        /*padding-right: 67px !important;*/
+        width: calc(100vw - 62px) !important;
+    }
+
+    /* Change Unified Extensions Menu button icon to Home button icon * 
+    #unified-extensions-button {
+        list-style-image: url("chrome://browser/skin/home.svg") !important;
+    }
+
+    /* URL Bar */
+    #urlbar-container {
+        max-width: var(--urlbar-width) !important;
+    }
+    #urlbar,
+    #searchbar,
+    #urlbar-input,
+    #urlbar-input-container,
+    #urlbar-background {
+        border-radius: 7px !important;
+    }
+
+}

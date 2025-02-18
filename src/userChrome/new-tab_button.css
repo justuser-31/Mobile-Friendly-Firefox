@@ -1,0 +1,18 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Hide non-overflow Newtab button */
+    #tabs-newtab-button {
+        display: none !important;
+    }
+
+    /* Display overflow New-tab button by default and fix alignment */
+    #new-tab-button { 
+        display: initial !important;
+        margin-top: 4px !important;
+    }
+
+}

@@ -1,0 +1,68 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Disable tab loading burst
+   (because it's annoying) */
+.tab-loading-burst {
+    display: none !important;
+}
+
+/* Tabs Toolbar and Container tab line color
+   (hides container tab line above tab by making it the same color as the Tabs Toolbar) */
+#TabsToolbar,
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    background-color: var(--tab-bgcolor) !important;
+}
+
+/* Resist Fingerprinting Letterbox background color */
+:root {
+    --tabpanel-background-color: black !important;
+}
+
+/* Remove popup warning when enterimg Fullscreen */
+.pointerlockfswarning {
+    display: none !important;
+}
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Remove tab overflow indicators */
+    spacer[part=overflow-start-indicator],
+    spacer[part=overflow-end-indicator] {
+        display: none !important;
+    }
+
+    /* Remove spacers on left and right of main tab view */
+    #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+        margin-inline-start: 0px !important;
+    }
+    .titlebar-spacer[type="post-tabs"] {
+        display: none !important;
+    }
+
+    /* Remove items from URL Bar */
+    #tracking-protection-icon-container,
+    #identity-permission-box,
+    #userContext-indicator,
+    /*#page-action-buttons,*/
+    #pageActionButton {
+        display: none !important;
+    }
+
+    /* URL Bar font resizing */
+    #urlbar-input {
+        font-size: 10pt !important;
+    }
+    /*#urlbar[focused] #urlbar-input {
+        font-size: calc(var(--urlbar-height) - 9px) !important;
+    }*/
+
+    /* Hide inactive tab close button (x)
+         to prevent accidentally closing tabs when selecting them */
+    .tab-close-button:not([selected]),
+    .tabbrowser-tab:not([selected]):hover .tab-close-button {
+        visibility: hidden !important;
+    }
+
+}

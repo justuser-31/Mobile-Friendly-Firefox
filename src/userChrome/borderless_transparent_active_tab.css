@@ -1,0 +1,12 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Tab color */
+.tab-background {
+    background-color: transparent !important;
+}
+
+/* Tab border */
+.tab-background[selected] {
+    border: 0 transparent !important;
+}

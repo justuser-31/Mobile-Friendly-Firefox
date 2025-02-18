@@ -1,0 +1,101 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/******************************/
+/*                            */
+/*         IMPORTANT:         */
+/*                            */
+/* A feature that is present  */
+/* in this code is to move    */
+/* the Tab Manager button to  */
+/* the right of the URL Bar.  */
+/*                            */
+/* Consider removing toolbar  */
+/* items to conserve space.   */
+/*                            */
+/* To remove toolbar items:   */
+/* select item to be removed  */
+/* by using a secondary-click */
+/* or by using a hold gesture */
+/* and tap/click the option   */
+/* "Remove from Toolbar".     */
+/*                            */
+/* To move toolbar items:     */
+/* perform hold gesture or    */
+/* secondary-click on toolbar */
+/* and tap/click the option   */
+/* "Customize Toolbar", or    */
+/* customize a user.js file   */
+/* in your browser profiles.  */
+/*                            */
+/******************************/
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --PanelUI-menu-button-position: 4px;
+        --alltabs-button-height: 32px;
+        --alltabs-button-width: 32px;
+        --alltabs-button-position: 3.5px;
+        --alltabs-button-badge-position: 8px;
+        --urlbar-width: calc(100vw - 166px);
+    }
+    :root[uidensity="touch"] {
+        --PanelUI-menu-button-position: 5px;
+        --alltabs-button-height: 34px;
+        --alltabs-button-width: 34px;
+        --alltabs-button-position: 4.5px;
+        --alltabs-button-badge-position: 9px;
+        --urlbar-width: calc(100vw - 171.5px);
+    }
+
+    /* Move Main App Menu (≡) button to allow room for Tab Manager Menu button */
+    #PanelUI-menu-button {
+        position: fixed !important;
+        right: 0px !important;
+        bottom: var(--PanelUI-menu-button-position) !important;
+    }
+
+    /* Hide Tab Bar and Private Browsing Indicator */
+    #tabbrowser-tabs,
+    #private-browsing-indicator-with-label {
+        visibility: collapse !important;
+    }
+
+    /* Menu Bar and Nav Bar bottom border */
+    #navigator-toolbox {
+        border-bottom-color: black !important;
+    }
+
+    /* Move Tab Manager Menu button to right of urlbar */
+    :root {
+        --tab-border-radius: var(--toolbarbutton-border-radius) !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+        height: var(--alltabs-button-height) !important;
+        width: var(--alltabs-button-width) !important;
+    }
+    #alltabs-button {
+        position: absolute;
+        bottom: var(--alltabs-button-position) !important;
+        right: 41.5px;
+        z-index: 2 !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack::before {
+        bottom: var(--alltabs-button-badge-position) !important;
+    }
+
+    /* Allow room for Tab Manager Menu button */
+    #nav-bar {
+        /*padding-right: 67px !important;*/
+        width: calc(100vw - 62px) !important;
+    }
+
+    /* Reduce URL Bar width */
+    #urlbar-container {
+        max-width: var(--urlbar-width) !important;
+    }
+
+}

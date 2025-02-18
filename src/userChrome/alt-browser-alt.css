@@ -1,0 +1,78 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --alltabs-button-position: 3.5px !important;
+        --widget-overflow-margin: 22px;
+        --unified-extensions-panel-margin: 22px;
+        --customizationui-widget-panel-margin: 22px;
+        --appMenu-popup-margin: 22px;
+        --BMB_bookmarksPopup-margin: 22px;
+    }
+    :root[uidensity="touch"] {
+        --alltabs-button-position: 4.5px !important;
+        --widget-overflow-margin: 23px;
+        --unified-extensions-panel-margin: 23px;
+        --customizationui-widget-panel-margin: 23px;
+        --appMenu-popup-margin: 23px;
+        --BMB_bookmarksPopup-margin: 23px;
+    }
+    :root:not([uidensity="touch"],[inFullscreen]) {
+        --uc-bottom-toolbar-height: calc(39px + var(--toolbarbutton-outer-padding) )
+    }
+    :root[uidensity="touch"]:not([inFullscreen]){
+        --uc-bottom-toolbar-height: calc(43px + var(--toolbarbutton-outer-padding) )
+    }
+
+    /* Hide Nav Bar and Tab Bar when in Fullscreen mode and hide and Title Bar */
+    #nav-bar[inFullscreen],
+    #TabsToolbar[inFullscreen],
+    .titlebar-buttonbox-container {
+        display: none;
+    }
+
+    /* Move Nav Bar to bottom */
+    #browser,
+    #customization-container {
+        margin-bottom: var(--uc-bottom-toolbar-height,0px)
+    }
+    #nav-bar{
+        position: fixed !important;
+        bottom: 0px;
+        width: 100%;
+        z-index: 1;
+    }
+    .panel-viewstack {
+        max-height: unset !important;
+    }
+
+    /* Adjust Widget Overflow Menu (») spawn height */
+    #widget-overflow {
+        margin-bottom: var(--widget-overflow-margin) !important;
+    }
+
+    /* Adjust Unified Extensions Menu spawn height */
+    #unified-extensions-panel {
+        margin-bottom: var(--unified-extensions-panel-margin) !important;
+    }
+
+    /* Adjust Tab Manager Menu spawn height */
+    #customizationui-widget-panel {
+        margin-bottom: var(--customizationui-widget-panel-margin) !important;
+    }
+
+    /* Adjust Main App Menu (≡) spawn height */
+    #appMenu-popup {
+        margin-bottom: var(--appMenu-popup-margin) !important;
+    }
+
+    /* Adjust Bookmarks Menu (★) spawn height */
+    #BMB_bookmarksPopup {
+        margin-bottom: var(--BMB_bookmarksPopup-margin) !important;
+    }
+
+}

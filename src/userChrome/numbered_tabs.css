@@ -1,0 +1,51 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/numbered_tabs.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --tab-number-position: calc(var(--toolbarbutton-inner-padding) * 1.6 );
+    }
+    :root[uidensity="touch"] {
+        --tab-number-position: calc(var(--toolbarbutton-inner-padding) * 1.8 );
+    }
+
+    /* Show the tab number after tab content, right-align it, and fix its position directly on the tab close button */
+    #tabbrowser-tabs {
+        counter-reset: nth-tab 0; /* Change to -1 for 0-indexing */
+    }
+    .tabbrowser-tab .tab-content::after {
+        content: counter(nth-tab) " ";
+        counter-increment: nth-tab;
+        position: absolute !important;
+        position: fixed;
+        right: 24px;
+        bottom: var(--tab-number-position);
+        width: 0 !important;
+    }
+
+    /* Hide tab close button on unpinned tabs, and reserve space for tab number */
+    .tabbrowser-tab:not(:hover,[pinned]) .tab-close-button {
+        display: initial !important;
+        visibility: hidden !important;
+    }
+
+    /* Hide tab number on pinned tabs and when hovering on unpinned tabs so that tab close button is clickable */
+    .tabbrowser-tab[pinned] .tab-content::after,
+    .tabbrowser-tab:not([pinned]):hover .tab-content::after {
+        visibility: hidden !important;
+    }
+
+    /* Adjust tab close button opacity, border, and shape */
+    .tab-close-button {
+        position: absolute !important;
+        margin-right: -8px !important;
+        opacity: 0.5 !important;
+        border: 2px solid white !important;
+        height: 36px !important;
+        width: 36px !important;
+    }
+
+}

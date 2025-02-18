@@ -1,0 +1,71 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --unified-extensions-panel-padding: 25px;
+        --customizationui-widget-panel-padding: 25px;
+    }
+    :root[uidensity="touch"] {
+        --unified-extensions-panel-padding: 22px;
+        --customizationui-widget-panel-padding: 22px;
+    }
+
+    /* Dynamically expand popups */
+    #unified-extensions-view {
+        height: calc(100vh - 100px) !important;
+        max-height: calc(100vh - 100px) !important;
+    }
+    #customizationui-widget-multiview box.panel-viewstack {
+        height: calc(100vh - 95px) !important;
+        max-height: calc(100vh - 95px) !important;
+    }
+    #appMenu-popup,
+    #appMenu-protonMainView vbox.panel-subview-body {
+        margin-top: 0 !important;
+        height: calc(100vh - 107px) !important;
+        max-height: calc(100vh - 107px) !important;
+    }
+
+    /* Adjust Unified Extensions Menu spawn height */
+    #unified-extensions-panel {
+        margin-bottom: 6px !important;
+        padding-top: var(--unified-extensions-panel-padding) !important;
+        padding-bottom: 17px !important;
+    }
+
+    /* Adjust Tab Manager Menu spawn height */
+    #customizationui-widget-panel {
+        margin-bottom: 6px !important;
+        padding-top: var(--customizationui-widget-panel-padding) !important;
+        padding-bottom: 17px !important;
+    }
+
+    /* Blend panels into background */
+    #unified-extensions-panel,
+    #customizationui-widget-panel {
+        background-color: black !important;
+    }
+
+    /* Allow extensions to use full popup */
+    .webextension-popup-browser {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: calc(100vw - 20px) !important;
+        min-width: calc(100vw - 20px) !important;
+    }
+
+    /* Added extra space to bottom of Unified Extensions Menu to compensate for orientation problem that would leave some extensions hidden in portrait mode when Unified Extentions Menu is first opened in landscape mode */
+    #unified-extensions-area {
+        padding-bottom: 350px !important;
+    }
+
+    /* Added extra space to bottom of Main App Menu (≡) to compensate for orientation problem that would leave some items hidden in portrait mode when Main App Menu (≡) is first opened in landscape mode */
+    #appMenu-quit-button2 {
+        margin-bottom: 300px !important;
+    }
+
+}

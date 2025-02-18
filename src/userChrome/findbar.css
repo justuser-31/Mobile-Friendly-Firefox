@@ -1,0 +1,38 @@
+/* Copyright 2022 Oliver Smith
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+/*@media (max-width: 700px) {*/
+    .findbar-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /*height: 150px !important;*/
+        height: 40px !important;
+    }
+
+    .findbar-textbox {
+        /* Overwrite fixed size, so the X on the right shows up */
+        width: 100% !important;
+    }
+
+    .findbar-container checkbox {
+        /* Add space around the buttons, looks nicer and makes it easier to hit
+         * them with the finger. */
+        padding: 10px 0px;
+    }
+
+    /* Save space */
+    .findbar-highlight,
+    .findbar-case-sensitive,
+    .findbar-match-diacritics,
+    .findbar-entire-word,
+    /*.found-matches,*/
+    .findbar-find-status,
+    .find-status-icon {
+        display: none;
+    }
+
+}

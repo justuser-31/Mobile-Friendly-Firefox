@@ -1,0 +1,281 @@
+/* Copyright 2023 user0
+ * SPDX-License-Identifier: MPL-2.0 */
+
+/******************************/
+/*                            */
+/*         IMPORTANT:         */
+/*                            */
+/* A feature that is present  */
+/* in this code is to move    */
+/* the Tab Manager button to  */
+/* the right of the URL Bar.  */
+/*                            */
+/* Consider removing toolbar  */
+/* items to conserve space.   */
+/*                            */
+/* To remove toolbar items:   */
+/* select item to be removed  */
+/* by using a secondary-click */
+/* or by using a hold gesture */
+/* and tap/click the option   */
+/* "Remove from Toolbar".     */
+/*                            */
+/* To move toolbar items:     */
+/* perform hold gesture or    */
+/* secondary-click on toolbar */
+/* and tap/click the option   */
+/* "Customize Toolbar", or    */
+/* customize a user.js file   */
+/* in your browser profiles.  */
+/*                            */
+/******************************/
+
+/* Apply this customization only on smaller screens in landscape mode */
+@media (orientation: landscape) and (max-height: 650px) {
+
+    /* Density variables */
+    :root:not([uidensity="touch"]) {
+        --PanelUI-menu-button-position: 4px;
+        --alltabs-button-height: 32px;
+        --alltabs-button-width: 32px;
+        --alltabs-button-position: 4px;
+        --alltabs-button-badge-position: 8px;
+        --urlbar-width: calc(100vw - 205.5px);
+    }
+    :root[uidensity="touch"] {
+        --PanelUI-menu-button-position: 5px;
+        --alltabs-button-height: 34px;
+        --alltabs-button-width: 34px;
+        --alltabs-button-position: 5px;
+        --alltabs-button-badge-position: 9px;
+        --urlbar-width: calc(100vw - 209.5px);
+    }
+
+    /* Remove items from Main App Menu (≡) */
+    #appMenu-fxa-status2,
+    #appMenu-fxa-separator,
+    #appMenu-protonMainView toolbarseparator,
+    #appMenu-fullscreen-button2,
+    #appMenu-passwords-button,
+    .subviewbutton[shortcut]::after {
+        display: none !important;
+    }
+
+    /* Remove extra space above zoom controls in Main App Menu (≡) */
+    #appMenu-zoom-controls {
+        margin-top: 0 !important;
+    }
+
+    /* Fix flickering of Main App Menu (≡) */
+    #appMenu-popup {
+        width: 260px !important;
+    }
+    #appMenu-protonMainView vbox.panel-subview-body {
+        height: 253px !important;
+        max-height: 253px !important;
+        width: 250px !important;
+    }
+
+    /* Move Main App Menu (≡) button to allow room for Tab Manager Menu button */
+    #PanelUI-menu-button {
+        position: fixed !important;
+        right: 0px !important;
+        bottom: var(--PanelUI-menu-button-position) !important;
+    }
+
+    /* Hide Tab Bar and Private Browsing indicator */
+    #tabbrowser-tabs,
+    #private-browsing-indicator-with-label {
+        visibility: collapse !important;
+    }
+
+    /* Edit Bookmark Panel */
+    #editBookmarkPanel {
+        background-color: var(--arrowpanel-background) !important;
+        max-height: 100vh !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+    #editBookmarkPanel box.panel-header,
+    #editBookmarkHeaderSeparator,
+    #editBookmarkPanelInfoArea,
+    #editBookmarkSeparator,
+    #editBMPanel_folderRow,
+    #editBMPanel_tagsRow {
+        display: none !important;
+    }
+    #editBookmarkPanelContent {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    #editBookmarkPanelBottomButtons {
+        margin-top: -5px !important;
+        margin-left: -50px !important;
+    }
+
+    /* Show Tab Manager Menu button */
+    #alltabs-button {
+        display: -moz-box !important;
+    }
+
+    /* Remove items from Tab Manager Menu */
+    #allTabsMenu-searchTabs,
+    #allTabsMenu-tabsSeparator {
+        display: none;
+    }
+
+    /* Fix flickering of Tab Manager Menu and extension popups */
+    #customizationui-widget-panel,
+    #customizationui-widget-multiview box.panel-viewstack {
+        height: calc(100vh - 35px) !important;
+        max-height: calc(100vh - 35px) !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    /* Expand Tab Manager Menu */
+    #customizationui-widget-multiview panelview {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Tab Manager Menu tab counter */
+    #allTabsMenu-allTabsViewTabs, /* before FF 106 */
+    #allTabsMenu-allTabsView-tabs { /* since FF 106 */
+        counter-reset: nn_tabs 0 !important;
+    }
+    .all-tabs-button::before {
+        display: -moz-inline-box !important;
+        -moz-padding-end: 8px !important;
+        content: counter(nn_tabs) !important;
+        font-size: 12px !important;
+        margin-top: -2px !important;
+        margin-right: -2px !important;
+    }
+    .all-tabs-item {
+        counter-increment: nn_tabs !important;
+    }
+
+    /* Tab Manager Menu button tab counter */
+    #TabsToolbar-customization-target {
+        counter-reset: tabCount;
+    }
+    .tabbrowser-tab {
+        counter-increment: tabCount;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+        visibility: collapse !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+         position: relative !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack::before {
+        content: counter(tabCount);
+        color: var(--toolbarbutton-icon-fill);
+        opacity: var(--toolbarbutton-icon-fill-opacity);
+        position: absolute;
+        bottom: var(--toolbarbutton-inner-padding);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+        border-radius: var(--toolbarbutton-border-radius);
+    }
+
+    /* Move Tab Manager Menu button to right of URL Bar */
+    :root {
+        --tab-border-radius: var(--toolbarbutton-border-radius) !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack {
+        height: var(--alltabs-button-height) !important;
+        width: var(--alltabs-button-width) !important;
+    }
+    #alltabs-button {
+        position: absolute;
+        top: var(--alltabs-button-position) !important;
+        right: 41.5px;
+        z-index: 2 !important;
+    }
+    #alltabs-button > .toolbarbutton-badge-stack::before {
+        bottom: var(--alltabs-button-badge-position) !important;
+    }
+
+    /* Allow room for Tab Manager Menu button */
+    #nav-bar {
+        /*padding-right: 67px !important;*/
+        width: calc(100vw - 62px) !important;
+    }
+
+    /* Reduce URL Bar width */
+    #urlbar-container {
+        max-width: var(--urlbar-width) !important;
+    }
+
+    /* Remove items from Unified Extensions Menu */
+    #unified-extensions-panel .panel-header,
+    #unified-extensions-panel toolbarseparator,
+    #unified-extensions-manage-extensions {
+        display: none !important;
+    }
+
+    /* Adjust button padding and font size for secondary text in Unified Extensions Menu */
+    #unified-extensions-panel .subviewbutton {
+        padding: 6px !important;
+    }
+    .unified-extensions-item-message {
+        font-size: 75% !important;
+    }
+
+    /* Fix flickering of Unified Extensions Menu */
+    #unified-extensions-panel {
+        --uei-icon-size: 20px;
+        width: 360px !important;
+    }
+    #unified-extensions-view {
+        margin-top: 6px !important;
+        height: 230px !important;
+        max-height: 230px !important;
+        width: 350px !important;
+    }
+
+    /* Add padding to bottom of Unified Extensions Menu to look better */
+    #unified-extensions-area {
+        padding-bottom: 5px !important;
+    }
+
+    /* Allow extensions to use full display */
+    .webextension-popup-browser {
+        height: 100% !important;
+        min-height: 100% !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+    }
+
+    /* Adjust "Saved to Library!" popup notification */
+    #confirmation-hint {
+        padding: 10px !important;
+        width: 100vw !important;
+    }
+
+    /* Fix installing extensions */
+    .popup-notification-panel  {
+        margin-top: -280px !important; /* bottom nav-bar only */
+        max-width: 98vw;
+    }
+
+}
+
+/* Apply this customization only on smaller screens in portrait mode */
+@media (orientation: portrait) and (max-width: 720px) {
+
+    /* Added extra space to bottom of Main App Menu (≡) to compensate for orientation problem that would leave some items hidden in portrait mode when Main App Menu (≡) is first opened in landscape mode */
+    #appMenu-quit-button2 {
+        margin-bottom: 64px !important;
+    }
+
+    /* Added extra space to bottom of Unified Extensions Menu to compensate for orientation problem that would leave some extensions hidden in portrait mode when Unified Extentions Menu is first opened in landscape mode */
+    #unified-extensions-area {
+        padding-bottom: 120px !important;
+    }
+
+}

@@ -1,0 +1,257 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/color_variable_template.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* You should enable any non-default theme for these to apply properly. Built-in dark and light themes should work */
+:root {
+    /* Popup panels */
+    --arrowpanel-background: black !important;
+    --arrowpanel-border-color: #dc8add !important;
+    --arrowpanel-color: #dc8add !important;
+    --arrowpanel-dimmed: rgba(220,138,221,0.6) !important;
+    --arrowpanel-dimmed-further: rgba(220,138,221,0.3) !important;
+/*
+    --panel-background: black !important;
+    --panel-border-color: #dc8add !important;
+    --panel-color: white !important;
+    --panel-separator-color: #dc8add !important;
+*/
+    --panel-item-hover-bgcolor: rgba(220,138,221,0.5) !important;
+    --panel-item-active-bgcolor: #dc8add !important;
+    --panel-banner-item-background-color: #dc8add !important;
+    --panel-banner-item-hover-bgcolor: #dc8add !important;
+    --panel-banner-item-active-bgcolor: #dc8add !important;
+    --panel-banner-item-update-supported-bgcolor: #dc8add !important;
+    --panel-banner-item-info-icon-bgcolor: #dc8add !important;
+    --panel-banner-item-color: #dc8add !important;
+    --panel-description-color: #dc8add !important;
+    --panel-disabled-color: rgba(220,138,221,0.6) !important;
+    --uc-menu-bkgnd: transparent !important;
+    --uc-menu-color: #dc8add !important;
+    --uc-menu-dimmed: #dc8add !important;
+    --uc-menu-disabled: #dc8add !important;
+    --menuitem-disabled-hover-background-color: #dc8add !important;
+
+    /* window and toolbar background */
+    --lwt-accent-color: #dc8add !important;
+    --lwt-accent-color-inactive: #e8b1e8 !important;
+    --toolbar-non-lwt-bgcolor: black !important;
+    --toolbar-non-lwt-textcolor: #dc8add !important;
+    --toolbar-bgcolor: black !important;
+    --toolbar-color: #dc8add !important;
+    --tabpanel-background-color: black !important;    
+
+    /* tabs with system theme - text is not controlled by variable */
+    --tab-selected-bgcolor: #dc8add !important;
+
+    /* tabs with any other theme */
+    --lwt-text-color: white !important;
+    --lwt-selected-tab-background-color: #dc8add !important;
+
+    /* toolbar area */
+/*
+    --toolbarbutton-icon-fill: #dc8add !important;
+*/
+    --toolbarbutton-icon-fill-attention: white !important;
+    --toolbarbutton-hover-background: #dc8add !important;
+    --toolbarbutton-active-background: #dc8add !important;
+    --lwt-toolbarbutton-icon-fill-attention: white !important;
+    --lwt-toolbarbutton-hover-background: #dc8add !important;
+    --lwt-toolbarbutton-active-background: #dc8add !important;
+    --toolbarseparator-color: black !important;
+
+    /* urlbar */
+    --toolbar-field-border-color: #dc8add !important;
+    --toolbar-field-focus-border-color: #dc8add !important;
+    --urlbar-popup-url-color: white !important;
+/*
+    --urlbar-box-bgcolor: var(--button-bgcolor);
+    --urlbar-box-focus-bgcolor: var(--button-bgcolor);
+    --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor);
+    --urlbar-box-active-bgcolor: var(--button-active-bgcolor);
+    --urlbar-box-text-color: inherit;
+    --urlbar-box-hover-text-color: var(--urlbar-box-text-color);
+    --lwt-brighttext-url-color: #00ddff;
+*/
+
+    /* urlbar Firefox < 92 */
+    --lwt-toolbar-field-background-color: #dc8add !important;
+    --lwt-toolbar-field-focus: white !important;
+    --lwt-toolbar-field-color: white !important;
+    --lwt-toolbar-field-focus-color: white !important;
+
+    /* urlbar Firefox 92+ */
+    --toolbar-field-background-color: #dc8add !important;
+    --toolbar-field-focus-background-color: #dc8add !important;
+    --toolbar-field-icon-fill-attention: #dc8add !important;
+    --toolbar-field-color: white !important;
+    --toolbar-field-focus-color: white !important;
+
+    /* sidebar - note the sidebar-box rule for the header-area */
+    --lwt-sidebar-background-color: black !important;
+    --lwt-sidebar-text-color: black !important;
+
+    /* findbar */
+    --focus-outline-color: #dc8add !important;
+    --input-border-color: #dc8add !important;
+
+/* buttons and checkboxes */
+/*
+    --button-bgcolor: black !important;
+    --button-color: white !important;
+    --button-hover-bgcolor: #dc8add !important;
+    --button-active-bgcolor: #dc8add !important;
+*/
+    --button-primary-bgcolor: #dc8add !important;
+    --button-primary-hover-bgcolor: #dc8add !important;
+    --button-primary-active-bgcolor: #dc8add !important;
+    --button-primary-color: white !important;
+    --in-content-primary-button-background: #dc8add !important;
+    --in-content-primary-button-background-hover: #dc8add !important;
+    --in-content-primary-button-background-active: #dc8add !important;
+/*
+    --buttons-destructive-bgcolor: #e22850;
+    --buttons-destructive-hover-bgcolor: #c50042;
+    --buttons-destructive-active-bgcolor: #810220;
+    --buttons-destructive-color: #fbfbfe;
+*/
+    --checkbox-unchecked-bgcolor: black !important;
+    --checkbox-unchecked-hover-bgcolor: black !important;
+    --checkbox-unchecked-active-bgcolor: black !important;
+    --checkbox-checked-border-color: transparent !important;
+    --checkbox-checked-bgcolor: #dc8add !important;
+    --checkbox-checked-color: white !important;
+    --checkbox-checked-hover-bgcolor: rgba(220,138,221,0.9) !important;
+    --checkbox-checked-active-bgcolor: rgba(220,138,221,0.9) !important;
+    --uc-checkbox-checked-bgcolor: #dc8add !important;
+
+    /* icon glow */
+    --uc-icon-glow-primary: #dc8add;
+    --uc-icon-glow-secondary: white;
+    --uc-icon-glow-hover-primary: #dc8add;
+    --uc-icon-glow-hover-secondary: white;
+}
+
+/* line between nav-bar and tabs toolbar,
+        also fallback color for border around selected tab */
+#navigator-toolbox {
+    --lwt-tabs-border-color: none !important;
+}
+
+/* Line above tabs */
+#tabbrowser-tabs {
+    --lwt-tab-line-color: none !important;
+}
+
+/* the header-area of sidebar needs this to work */
+#sidebar-box {
+    --sidebar-background-color: black !important;
+}
+
+/* (context_menus_more_proton.css) */
+
+/* OPTIONAL Set custom context menu colors below */
+
+menupopup:not(.in-menulist) {
+    --panel-background: black !important;
+    --panel-color: white !important;
+    --panel-separator-color: #dc8add !important;
+    --panel-border-color: #dc8add !important;
+}
+menupopup > menuseparator {
+    border-color: var(--panel-separator-color,ThreeDShadow) !important;
+}
+
+menupopup {
+    --panel-item-hover-bgcolor: var(--button-hover-bgcolor) !important;
+}
+menupopup > menuitem,
+menupopup > menu {
+    appearance: none !important;
+    background-color: transparent !important;
+}
+
+#context-navigation > menuitem[_moz-menuactive]:not([disabled]) .menu-iconic-icon,
+menupopup > menuitem[_moz-menuactive],
+menupopup > menu[_moz-menuactive] {
+    background-color: var(--panel-border-color) !important;
+    color: var(--panel-color,inherit) !important;
+}
+menupopup > menuitem[disabled][_moz-menuactive],
+menupopup > menu[disabled][_moz-menuactive] {
+    background-color: var(--menuitem-disabled-hover-background-color) !important;
+}
+
+/* (dark_context_menus.css) */
+
+panel richlistbox,
+panel tree,
+panel button,
+panel menulist,
+panel textbox,
+panel input,
+menupopup,
+menu,
+menuitem {
+    -moz-appearance: none !important;
+}
+
+panel menulist {
+    border: 1px solid transparent;
+}
+
+panel richlistbox,
+panel tree,
+panel button,
+panel menulist,
+panel textbox,
+panel input,
+panel #searchbar,
+menupopup:not(#BMB_bookmarksPopup),
+#main-menubar > menu > menupopup,
+#context-navigation {
+    color: var(--uc-menu-color) !important;
+    background-color: var(--uc-menu-bkgnd) !important;
+    border-color: var(--uc-menu-disabled) !important;
+}
+
+panel input {
+    background-color: rgba(0,0,0,0.1) !important;
+}
+panel #searchbar {
+    background-color: rgba(0,0,0,0.1) !important;
+    padding: 0 !important;
+}
+panel #searchbar input {
+    background-color: transparent !important;
+}
+
+panel menulist:hover,
+panel menulist[open] {
+    border-color: Highlight !important;
+}
+
+#editBMPanel_folderMenuList > menupopup > menuitem {
+    color: var(--uc-menu-color) !important;
+}
+
+panel treechildren::-moz-tree-row(selected),
+panel button:hover,
+menu:hover,
+menu[_moz-menuactive],
+menuitem:hover,
+menuitem[_moz-menuactive] {
+    background-color: var(--uc-menu-dimmed) !important; color: var(--lwt-text-color) !important;
+}
+menu[open] {
+    background-color: transparent !important; color: inherit !important;
+}
+
+menu[disabled="true"],
+menuitem[disabled="true"] {
+    color: var(--uc-menu-disabled) !important;
+}
+
+menu[disabled="true"]:hover,
+menuitem[disabled="true"]:hover {
+    color: var(--lwt-text-color) !important;
+}
