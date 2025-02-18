@@ -54,22 +54,8 @@ sudo apk del mobile-config-firefox
 * Clone this repo:
 
 ```
-git clone https://codeberg.org/user0/Mobile-Friendly-Firefox.git
+git clone https://github.com/justuser-31/Mobile-Friendly-Firefox.git
 ```
-
-#### Option 2:
-
-* Download an archive of this repo from one of these links:
-
-  * [TAR Archive](https://codeberg.org/user0/Mobile-Friendly-Firefox/archive/main.tar.gz)
-  * [ZIP Archive](https://codeberg.org/user0/Mobile-Friendly-Firefox/archive/main.zip)
-
-* Extract the archive using a file manager or use this command (for TAR archives):
-
-```
-tar -xf Mobile-Friendly-Firefox-master.tar.gz
-```
-
 
 ## Pre-Install:
 
